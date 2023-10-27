@@ -1,4 +1,4 @@
-package base;
+package com.coherent.aqa.java.training.api.matveenko.base;
 
 import org.testng.ITestResult;
 import org.testng.TestListenerAdapter;

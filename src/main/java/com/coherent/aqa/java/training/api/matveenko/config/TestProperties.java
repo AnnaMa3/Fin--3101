@@ -1,6 +1,6 @@
-package config;
+package com.coherent.aqa.java.training.api.matveenko.config;
 
-import exceptions.BadConfigException;
+import com.coherent.aqa.java.training.api.matveenko.exceptions.BadConfigException;
 
 import java.io.IOException;
 import java.io.InputStream;

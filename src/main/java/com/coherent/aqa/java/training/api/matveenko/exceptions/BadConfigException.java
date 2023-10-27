@@ -1,4 +1,4 @@
-package exceptions;
+package com.coherent.aqa.java.training.api.matveenko.exceptions;
 
 public class BadConfigException extends RuntimeException{
 

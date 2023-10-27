@@ -1,11 +1,11 @@
-package base;
+package com.coherent.aqa.java.training.api.matveenko.base;
 
-import config.TestProperties;
-import org.apache.http.NameValuePair;
+import com.coherent.aqa.java.training.api.matveenko.config.TestProperties;
+import com.coherent.aqa.java.training.api.matveenko.token.ExtendableObject;
+import org.apache.http.HttpEntity;
 import org.apache.http.auth.AuthScope;
 import org.apache.http.auth.UsernamePasswordCredentials;
 import org.apache.http.client.CredentialsProvider;
-import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.client.methods.HttpUriRequest;
@@ -14,7 +14,9 @@ import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 
 import java.io.IOException;
-import java.util.List;
+import java.net.URISyntaxException;
+import java.util.Map;
+
 
 public class BasicHttpClient {
 
@@ -39,15 +41,21 @@ public class BasicHttpClient {
     }
 
 
-    public CloseableHttpResponse executePostRequest(String url, List<NameValuePair> parameters) throws IOException {
+    public CloseableHttpResponse executePostRequest(String url, Map<String, String> map) throws IOException, URISyntaxException {
         HttpPost httpPost = new HttpPost(url);
-        httpPost.setEntity(new UrlEncodedFormEntity(parameters));
+
+        ExtendableObject encodedMap = new ExtendableObject();
+        HttpEntity requestEntity = encodedMap.toUrlEncodedFormEntity(map);
+        httpPost.setEntity(requestEntity);
+
         CloseableHttpResponse response = (CloseableHttpResponse) httpClient
                 .execute((HttpUriRequest) httpPost);
+        System.out.println(response);
         return response;
     }
 
     public void close() throws Exception {
+        httpClient.close();
 
     }
 

@@ -1,12 +1,12 @@
 <?xml version = "1.0" encoding = "UTF-8"?>
 <suite name = "Simple Logger Suite">
     <listeners>
-        <listener class-name = "base.TestListener" />
+        <listener class-name = "com.coherent.aqa.java.training.api.matveenko.base.TestListener" />
     </listeners>
 
     <test name = "Simple Logger test">
         <classes>
-            <class name = "TokenTests" />
+            <class name = "com.coherent.aqa.java.training.api.matveenko.TokenTests" />
         </classes>
     </test>
 </suite>
