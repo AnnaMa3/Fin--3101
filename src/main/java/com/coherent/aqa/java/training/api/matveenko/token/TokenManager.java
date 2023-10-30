@@ -3,6 +3,7 @@ package com.coherent.aqa.java.training.api.matveenko.token;
 import com.coherent.aqa.java.training.api.matveenko.base.BasicHttpClient;
 import com.coherent.aqa.java.training.api.matveenko.config.TestProperties;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import org.apache.http.HttpEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.util.EntityUtils;
@@ -45,12 +46,13 @@ public class TokenManager {
         HttpEntity entity = response.getEntity();
         String responseBody = EntityUtils.toString(entity);
 
-        ExtendableObject responseObject = new ObjectMapper()
-                .readerFor(ExtendableObject.class)
-                .readValue(responseBody);
-        String accessTokenKey = "access_token";
+        ObjectMapper objectMapper = new ObjectMapper();
+        objectMapper.registerModule(new JavaTimeModule());
+        TokenResponse responseObject = objectMapper.readValue(responseBody, TokenResponse.class);
 
-        String writeToken = responseObject.get(accessTokenKey);
+
+        String writeToken = responseObject.getAccessToken();
+
 
 
         return writeToken;
@@ -70,12 +72,12 @@ public class TokenManager {
         HttpEntity entity = response.getEntity();
         String responseBody = EntityUtils.toString(entity);
 
-        ExtendableObject responseObject = new ObjectMapper()
-                .readerFor(ExtendableObject.class)
-                .readValue(responseBody);
-        String accessTokenKey = "access_token";
+        ObjectMapper objectMapper = new ObjectMapper();
+        objectMapper.registerModule(new JavaTimeModule());
+        TokenResponse responseObject = objectMapper.readValue(responseBody, TokenResponse.class);
 
-        String readToken = responseObject.get(accessTokenKey);
+        String readToken = responseObject.getAccessToken();
+
 
         return readToken;
     }
