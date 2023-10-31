@@ -14,6 +14,7 @@ import java.time.Instant;
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
+public
 class TokenResponse {
     @JsonProperty(value = "access_token")
     private String accessToken;

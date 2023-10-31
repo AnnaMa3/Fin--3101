@@ -1,17 +1,14 @@
 package com.coherent.aqa.java.training.api.matveenko;
 
 import com.coherent.aqa.java.training.api.matveenko.base.BasicHttpClient;
-import com.coherent.aqa.java.training.api.matveenko.base.TestListener;
+import com.coherent.aqa.java.training.api.matveenko.token.TokenResponse;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import com.coherent.aqa.java.training.api.matveenko.token.TokenManager;
 
 import java.io.IOException;
-import java.net.URISyntaxException;
 
-@Listeners(TestListener.class)
 public class TokenTests {
 
     private BasicHttpClient httpClient;
@@ -20,21 +17,20 @@ public class TokenTests {
     @BeforeClass
     public void setUp(){
         httpClient = BasicHttpClient.getInstance();
-        tokenManager = TokenManager.getInstance();
+        tokenManager = new TokenManager();
     }
 
     @Test
-    public void getWriteTokenTest() throws IOException, URISyntaxException {
-        String writeToken = tokenManager.getWriteToken();
-        Assert.assertNotNull(writeToken);
-
+    public void getWriteTokenTest() throws IOException {
+        TokenResponse writeToken = tokenManager.getWriteToken();
+        Assert.assertNotNull(writeToken, "Write Token is not defined");
 
     }
 
     @Test
-    public void getReadTokenTest() throws IOException, URISyntaxException {
-        String readToken = tokenManager.getReadToken();
-        Assert.assertNotNull(readToken);
+    public void getReadTokenTest() throws IOException{
+        TokenResponse readToken = tokenManager.getReadToken();
+        Assert.assertNotNull(readToken, "Read Token is not defined");
 
     }
 }
