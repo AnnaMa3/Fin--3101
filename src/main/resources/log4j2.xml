@@ -1,12 +1,13 @@
-<?xml version = "1.0" encoding = "UTF-8"?>
-<suite name = "Simple Logger Suite">
-    <listeners>
-        <listener class-name = "com.coherent.aqa.java.training.api.matveenko.base.TestListener" />
-    </listeners>
+<Configuration status="INFO">
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+        </Console>
+    </Appenders>
+    <Loggers>
+        <Root level="info">
+            <AppenderRef ref="Console" />
+        </Root>
+    </Loggers>
 
-    <test name = "Simple Logger test">
-        <classes>
-            <class name = "com.coherent.aqa.java.training.api.matveenko.TokenTests" />
-        </classes>
-    </test>
-</suite>
+</Configuration>
