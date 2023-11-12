@@ -2,6 +2,7 @@ package com.coherent.aqa.java.training.api.matveenko;
 
 import com.coherent.aqa.java.training.api.matveenko.base.BasicHttpClient;
 import com.coherent.aqa.java.training.api.matveenko.token.TokenResponse;
+import org.apache.log4j.PropertyConfigurator;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -18,6 +19,8 @@ public class TokenTests {
     public void setUp(){
         httpClient = BasicHttpClient.getInstance();
         tokenManager = new TokenManager();
+        String log4jConfPath ="src/main/resources/log4j.properties";
+        PropertyConfigurator.configure(log4jConfPath);
     }
 
     @Test
