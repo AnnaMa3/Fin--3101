@@ -3,8 +3,11 @@ package com.coherent.aqa.java.training.api.matveenko.token;
 import com.coherent.aqa.java.training.api.matveenko.base.BasicHttpClient;
 import com.coherent.aqa.java.training.api.matveenko.config.TestProperties;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.apache.http.client.methods.CloseableHttpResponse;
+import org.springframework.util.StreamUtils;
 
 import java.io.IOException;
+import java.nio.charset.Charset;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -30,7 +33,8 @@ public class TokenManager {
         map.put("grant_type", "client_credentials");
         map.put("scope", "write");
 
-        String responseBody = httpClient.executePostRequest(URL, map);
+        CloseableHttpResponse response = httpClient.executePostRequest(URL, map);
+        String responseBody = StreamUtils.copyToString(response.getEntity().getContent(), Charset.defaultCharset());
 
         ObjectMapper objectMapper = ModuleConfig.getObjectMapper();
         TokenResponse writeToken = objectMapper.readValue(responseBody, TokenResponse.class);
@@ -46,7 +50,8 @@ public class TokenManager {
         map.put("grant_type", "client_credentials");
         map.put("scope", "read");
 
-        String responseBody = httpClient.executePostRequest(URL, map);
+        CloseableHttpResponse response = httpClient.executePostRequest(URL, map);
+        String responseBody = StreamUtils.copyToString(response.getEntity().getContent(), Charset.defaultCharset());
 
         ObjectMapper objectMapper = ModuleConfig.getObjectMapper();
         TokenResponse readToken = objectMapper.readValue(responseBody, TokenResponse.class);
