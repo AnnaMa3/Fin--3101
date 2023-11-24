@@ -32,13 +32,9 @@ public class LoggingResponseInterceptor implements HttpResponseInterceptor {
                 + System.lineSeparator()
                 + httpResponse.getStatusLine()
                 + System.lineSeparator()
-                + httpResponse.getEntity().toString()
+                + getAllHeaders(httpResponse)
                 + System.lineSeparator()
                 + EntityUtils.toString(bufferedEntity)
-
-
-                + System.lineSeparator()
-                + getAllHeaders(httpResponse)
                 + System.lineSeparator()
                 + System.lineSeparator()
                 + "==========================response end===============================================");

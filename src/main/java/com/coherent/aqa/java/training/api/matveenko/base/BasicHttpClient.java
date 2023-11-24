@@ -17,27 +17,24 @@ import org.apache.http.entity.mime.MultipartEntityBuilder;
 import org.apache.http.impl.client.BasicCredentialsProvider;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
-import org.springframework.util.StreamUtils;
 
 import java.io.IOException;
-import java.nio.charset.Charset;
-import java.util.Map;
+import java.util.*;
 
 
 public class BasicHttpClient {
 
     private static BasicHttpClient instance;
-    private static CloseableHttpClient httpClient;
+    static CloseableHttpClient httpClient;
 
     private static final String DEFAULT_USER = TestProperties.get("user");
     private static final String DEFAULT_PASS = TestProperties.get("password");
 
 
-    private BasicHttpClient(CloseableHttpClient httpClient) {
+    BasicHttpClient(CloseableHttpClient httpClient) {
         CredentialsProvider provider = new BasicCredentialsProvider();
         provider.setCredentials(AuthScope.ANY, new UsernamePasswordCredentials(DEFAULT_USER, DEFAULT_PASS));
         this.httpClient = HttpClients.custom().addInterceptorFirst(new LoggingRequestInterceptor()).addInterceptorFirst(new LoggingResponseInterceptor()).setDefaultCredentialsProvider(provider).build();
-
     }
 
     public static BasicHttpClient getInstance(){
@@ -48,7 +45,7 @@ public class BasicHttpClient {
     }
 
 
-    public String executePostRequest(String url, Map<String, String> map) throws IOException{
+    public CloseableHttpResponse executePostRequest(String url, Map<String, String> map) throws IOException{
         HttpPost httpPost = new HttpPost(url);
 
         MultipartEntityBuilder builder = MultipartEntityBuilder.create();
@@ -64,10 +61,9 @@ public class BasicHttpClient {
         CloseableHttpResponse response = (CloseableHttpResponse) httpClient
                 .execute((HttpUriRequest) httpPost);
 
-        String responseBody = StreamUtils.copyToString(response.getEntity().getContent(), Charset.defaultCharset());
-        return responseBody;
-    }
 
+        return response;
+    }
 
 
     @SneakyThrows
@@ -75,5 +71,4 @@ public class BasicHttpClient {
         httpClient.close();
 
     }
-
 }
