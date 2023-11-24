@@ -11,12 +11,14 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import com.coherent.aqa.java.training.api.matveenko.token.TokenManager;
+import org.testng.collections.Sets;
 
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Collections;
 import java.util.List;
 import java.util.Properties;
+import java.util.Set;
 
 public class TokenTests {
 
@@ -72,9 +74,9 @@ public class TokenTests {
     public void postZipCodes(List<String> zipcode) throws IOException {
         TokenResponse writeToken = tokenManager.getWriteToken();
         ZipCodesHttpClient zipCodesHttpClient = new ZipCodesHttpClient();
-        CloseableHttpResponse response = zipCodesHttpClient.executePostZipCodeRequest(URL_POST_ZIPCODES, writeToken.getAccessToken(), zipcode);
-        int eduplicates = zipCodesHttpClient.entitySize(response);
-        Assert.assertEquals(response.getStatusLine().getStatusCode(), 201, "Zip Codes is not available");
-        Assert.assertEquals(eduplicates, 0, "Duplicates are found");
+        List<String> zipcodes = zipCodesHttpClient.executePostZipCodeRequest(URL_POST_ZIPCODES, writeToken.getAccessToken(), zipcode);
+        Set<String> set = Sets.newHashSet(zipcodes);
+        System.out.println(set.size());
+        Assert.assertEquals(zipcodes.size(), set.size(), "Duplicates are found");
     }
 }

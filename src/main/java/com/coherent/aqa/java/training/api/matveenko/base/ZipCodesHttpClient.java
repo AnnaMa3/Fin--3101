@@ -7,6 +7,7 @@ import org.apache.http.client.methods.HttpPost;
 import org.apache.http.client.methods.HttpUriRequest;
 import org.apache.http.entity.StringEntity;
 import org.springframework.util.StreamUtils;
+import org.testng.Assert;
 
 import java.io.IOException;
 import java.nio.charset.Charset;
@@ -29,7 +30,7 @@ public class ZipCodesHttpClient extends BasicHttpClient {
         return response;
     }
 
-    public CloseableHttpResponse executePostZipCodeRequest(String url, String writeToken, List<String> zipCodes) throws IOException{
+    public List <String> executePostZipCodeRequest(String url, String writeToken, List<String> zipCodes) throws IOException{
         HttpPost httpPost = new HttpPost(url);
         httpPost.setHeader("Authorization", "Bearer "+ writeToken);
 
@@ -43,27 +44,14 @@ public class ZipCodesHttpClient extends BasicHttpClient {
         CloseableHttpResponse response = (CloseableHttpResponse) httpClient
                 .execute((HttpUriRequest) httpPost);
 
-        return response;
-    }
+        Assert.assertEquals(response.getStatusLine().getStatusCode(), 201, "Zip Codes is not available");
+        String responseBody = StreamUtils.copyToString(response.getEntity().getContent(), Charset.defaultCharset());
 
-    public int entitySize(CloseableHttpResponse httpResponse) throws IOException {
-        String responseBody = StreamUtils.copyToString(httpResponse.getEntity().getContent(), Charset.defaultCharset());
-
-        ObjectMapper mapper = new ObjectMapper();
+        ObjectMapper entityMapper = new ObjectMapper();
         List <String> entity = new ArrayList< >();
-        entity = mapper.readValue(responseBody, List.class);
-        int size1 = entity.size();
+        entity = entityMapper.readValue(responseBody, List.class);
 
-        Map<String, Integer> duplicates = new HashMap<>();
-
-        for(int i=0; i < entity.size(); i++){
-            String value = entity.get(i);
-            duplicates.put(value, duplicates.getOrDefault(value, 0)+1);
-        }
-
-        int size2 =  duplicates.size();
-        int duplicatesCounter = size1 - size2;
-
-        return duplicatesCounter;
+        return entity;
     }
+
 }
