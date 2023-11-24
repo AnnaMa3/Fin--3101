@@ -4,7 +4,6 @@ import com.coherent.aqa.java.training.api.matveenko.base.BasicHttpClient;
 import com.coherent.aqa.java.training.api.matveenko.base.ZipCodesHttpClient;
 import com.coherent.aqa.java.training.api.matveenko.config.TestProperties;
 import com.coherent.aqa.java.training.api.matveenko.token.TokenResponse;
-import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.log4j.PropertyConfigurator;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
@@ -66,8 +65,9 @@ public class TokenTests {
     public void getZipCodes() throws IOException {
         TokenResponse readToken = tokenManager.getReadToken();
         ZipCodesHttpClient zipCodesHttpClient = new ZipCodesHttpClient();
-        CloseableHttpResponse response = zipCodesHttpClient.executeGetZipCodeRequest(URL_GET_ZIPCODES, readToken.getAccessToken());
-        Assert.assertEquals(response.getStatusLine().getStatusCode(), 200, "Zip Codes is not available");
+        List<String> zipcodes = zipCodesHttpClient.executeGetZipCodeRequest(URL_GET_ZIPCODES, readToken.getAccessToken());
+        Set<String> set = Sets.newHashSet(zipcodes);
+        Assert.assertEquals(zipcodes.size(), set.size(), "Duplicates are found");
     }
 
     @Test (dataProvider = "zipcodes")
@@ -76,7 +76,6 @@ public class TokenTests {
         ZipCodesHttpClient zipCodesHttpClient = new ZipCodesHttpClient();
         List<String> zipcodes = zipCodesHttpClient.executePostZipCodeRequest(URL_POST_ZIPCODES, writeToken.getAccessToken(), zipcode);
         Set<String> set = Sets.newHashSet(zipcodes);
-        System.out.println(set.size());
         Assert.assertEquals(zipcodes.size(), set.size(), "Duplicates are found");
     }
 }

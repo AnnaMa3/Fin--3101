@@ -21,13 +21,20 @@ public class ZipCodesHttpClient extends BasicHttpClient {
         this.httpClient = httpClient;
     }
 
-    public CloseableHttpResponse executeGetZipCodeRequest(String url, String readToken) throws IOException{
+    public List <String> executeGetZipCodeRequest(String url, String readToken) throws IOException{
         HttpGet httpGet = new HttpGet(url);
         httpGet.setHeader("Authorization", "Bearer "+ readToken);
 
         CloseableHttpResponse response = (CloseableHttpResponse) httpClient.execute((HttpUriRequest)httpGet);
 
-        return response;
+        Assert.assertEquals(response.getStatusLine().getStatusCode(), 200, "Zip Codes is not available");
+        String responseBody = StreamUtils.copyToString(response.getEntity().getContent(), Charset.defaultCharset());
+
+        ObjectMapper entityMapper = new ObjectMapper();
+        List <String> entity = new ArrayList< >();
+        entity = entityMapper.readValue(responseBody, List.class);
+
+        return entity;
     }
 
     public List <String> executePostZipCodeRequest(String url, String writeToken, List<String> zipCodes) throws IOException{
