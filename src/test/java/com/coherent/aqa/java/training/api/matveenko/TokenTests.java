@@ -1,6 +1,7 @@
 package com.coherent.aqa.java.training.api.matveenko;
 
 import com.coherent.aqa.java.training.api.matveenko.base.BasicHttpClient;
+import com.coherent.aqa.java.training.api.matveenko.base.ZipCodesHttpClient;
 import com.coherent.aqa.java.training.api.matveenko.config.TestProperties;
 import com.coherent.aqa.java.training.api.matveenko.token.TokenResponse;
 import org.apache.http.client.methods.CloseableHttpResponse;
@@ -13,6 +14,8 @@ import com.coherent.aqa.java.training.api.matveenko.token.TokenManager;
 
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.util.Collections;
+import java.util.List;
 import java.util.Properties;
 
 public class TokenTests {
@@ -20,9 +23,9 @@ public class TokenTests {
     private BasicHttpClient httpClient;
     private TokenManager  tokenManager;
 
-    private static final String URL2 = TestProperties.get("url2");
-    private static final String URL3 = TestProperties.get("url3");
-    private static final String ZIPCODE = TestProperties.get("zipcode");
+    private static final String URL_GET_ZIPCODES = TestProperties.get("urlgetzipcodes");
+    private static final String URL_POST_ZIPCODES = TestProperties.get("urlpostzipcodes");
+    private static final List<String> ZIPCODE = Collections.singletonList(TestProperties.get("zipcode"));
 
     @DataProvider(name = "zipcodes")
     public Object[][] getCredentials() throws IOException {
@@ -60,18 +63,18 @@ public class TokenTests {
     @Test
     public void getZipCodes() throws IOException {
         TokenResponse readToken = tokenManager.getReadToken();
-        CloseableHttpResponse response = httpClient.executeGetZipCodeRequest(URL2, readToken.getAccessToken());
-        int duplicates = httpClient.countDuplicates(response);
+        ZipCodesHttpClient zipCodesHttpClient = new ZipCodesHttpClient();
+        CloseableHttpResponse response = zipCodesHttpClient.executeGetZipCodeRequest(URL_GET_ZIPCODES, readToken.getAccessToken());
         Assert.assertEquals(response.getStatusLine().getStatusCode(), 200, "Zip Codes is not available");
-        Assert.assertEquals(duplicates, 0, "Duplicates are found");
     }
 
     @Test (dataProvider = "zipcodes")
-    public void postZipCodes(String[] zipcode) throws IOException {
+    public void postZipCodes(List<String> zipcode) throws IOException {
         TokenResponse writeToken = tokenManager.getWriteToken();
-        CloseableHttpResponse response = httpClient.executePostZipCodeRequest(URL3, writeToken.getAccessToken(), zipcode);
-        int duplicates = httpClient.countDuplicates(response);
+        ZipCodesHttpClient zipCodesHttpClient = new ZipCodesHttpClient();
+        CloseableHttpResponse response = zipCodesHttpClient.executePostZipCodeRequest(URL_POST_ZIPCODES, writeToken.getAccessToken(), zipcode);
+        int eduplicates = zipCodesHttpClient.entitySize(response);
         Assert.assertEquals(response.getStatusLine().getStatusCode(), 201, "Zip Codes is not available");
-        Assert.assertEquals(duplicates, 0, "Duplicates are found");
+        Assert.assertEquals(eduplicates, 0, "Duplicates are found");
     }
 }

@@ -1,18 +1,14 @@
 package com.coherent.aqa.java.training.api.matveenko.token;
 
 import org.apache.http.*;
-import org.apache.http.entity.BufferedHttpEntity;
-import org.apache.http.entity.ByteArrayEntity;
+import org.apache.http.entity.StringEntity;
 import org.apache.http.protocol.HttpContext;
 import org.apache.http.util.EntityUtils;
 import org.apache.log4j.BasicConfigurator;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
 
 
 public class LoggingRequestInterceptor implements HttpRequestInterceptor {
@@ -24,52 +20,7 @@ public class LoggingRequestInterceptor implements HttpRequestInterceptor {
 
         BasicConfigurator.configure();
 
-        HttpEntity entity = new HttpEntity() {
-            @Override
-            public boolean isRepeatable() {
-                return false;
-            }
-
-            @Override
-            public boolean isChunked() {
-                return false;
-            }
-
-            @Override
-            public long getContentLength() {
-                return 0;
-            }
-
-            @Override
-            public Header getContentType() {
-                return null;
-            }
-
-            @Override
-            public Header getContentEncoding() {
-                return null;
-            }
-
-            @Override
-            public InputStream getContent() throws IOException, UnsupportedOperationException {
-                return null;
-            }
-
-            @Override
-            public void writeTo(OutputStream outputStream) throws IOException {
-
-            }
-
-            @Override
-            public boolean isStreaming() {
-                return false;
-            }
-
-            @Override
-            public void consumeContent() throws IOException {
-
-            }
-        };
+        HttpEntity entity = new StringEntity("Empty entity");
         if (httpRequest instanceof HttpEntityEnclosingRequest) {
             entity = ((HttpEntityEnclosingRequest) httpRequest).getEntity();
         }
