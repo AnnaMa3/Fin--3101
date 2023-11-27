@@ -1,5 +1,6 @@
 package com.coherent.aqa.java.training.api.matveenko.base;
 
+import com.coherent.aqa.java.training.api.matveenko.model.User;
 import com.coherent.aqa.java.training.api.matveenko.token.ModuleConfig;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.http.client.methods.CloseableHttpResponse;
@@ -23,12 +24,12 @@ public class UserHttpClient extends BasicHttpClient {
     }
 
 
-    public UserResponse executePostUserRequest(String url, String writeToken, Map<String, String> map) throws IOException{
+    public User executePostUserRequest(String url, String writeToken, User user) throws IOException{
         HttpPost httpPost = new HttpPost(url);
         httpPost.setHeader("Authorization", "Bearer "+ writeToken);
 
         ObjectMapper mapper = new ObjectMapper();
-        String jsonBody = mapper.writeValueAsString(map);
+        String jsonBody = mapper.writeValueAsString(user);
 
         StringEntity stringEntity = new StringEntity(jsonBody);
         stringEntity.setContentType("application/json");
@@ -41,11 +42,11 @@ public class UserHttpClient extends BasicHttpClient {
         String responseBody = StreamUtils.copyToString(response.getEntity().getContent(), Charset.defaultCharset());
 
         ObjectMapper objectMapper = ModuleConfig.getObjectMapper();
-        UserResponse user = new UserResponse();
+        User newUser = new User();
 
         if (responseBody.equals("")){
             return null;
-        } else return user = objectMapper.readValue(responseBody, UserResponse.class);
+        } else return newUser = objectMapper.readValue(responseBody, User.class);
     }
 
 }

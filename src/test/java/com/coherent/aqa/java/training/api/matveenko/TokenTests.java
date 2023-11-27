@@ -2,11 +2,10 @@ package com.coherent.aqa.java.training.api.matveenko;
 
 import com.coherent.aqa.java.training.api.matveenko.base.BasicHttpClient;
 import com.coherent.aqa.java.training.api.matveenko.base.UserHttpClient;
-import com.coherent.aqa.java.training.api.matveenko.base.UserResponse;
+import com.coherent.aqa.java.training.api.matveenko.model.User;
 import com.coherent.aqa.java.training.api.matveenko.base.ZipCodesHttpClient;
 import com.coherent.aqa.java.training.api.matveenko.config.TestProperties;
 import com.coherent.aqa.java.training.api.matveenko.token.TokenResponse;
-import org.apache.http.HttpResponse;
 import org.apache.log4j.PropertyConfigurator;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
@@ -93,13 +92,9 @@ public class TokenTests {
         TokenResponse writeToken = tokenManager.getWriteToken();
         UserHttpClient userHttpClient = new UserHttpClient();
 
-        Map<String, String> map = new HashMap<>();
-        map.put("zipCode", ZIP_CODE);
-        map.put("sex", SEX);
-        map.put("name", NAME);
-        map.put("age", AGE);
+        User user = User.newInstance(AGE, NAME, SEX, ZIP_CODE);
 
-        UserResponse user = userHttpClient.executePostUserRequest(URL_USER, writeToken.getAccessToken(), map);
+        userHttpClient.executePostUserRequest(URL_USER, writeToken.getAccessToken(), user);
         TokenResponse readToken = tokenManager.getReadToken();
         ZipCodesHttpClient zipCodesHttpClient = new ZipCodesHttpClient();
         List<String> zipcodes = zipCodesHttpClient.executeGetZipCodeRequest(URL_GET_ZIPCODES, readToken.getAccessToken());
