@@ -2,6 +2,7 @@ package com.coherent.aqa.java.training.api.matveenko;
 
 import com.coherent.aqa.java.training.api.matveenko.base.BasicHttpClient;
 import com.coherent.aqa.java.training.api.matveenko.base.UserHttpClient;
+import com.coherent.aqa.java.training.api.matveenko.model.NewUser;
 import com.coherent.aqa.java.training.api.matveenko.model.User;
 import com.coherent.aqa.java.training.api.matveenko.base.ZipCodesHttpClient;
 import com.coherent.aqa.java.training.api.matveenko.config.TestProperties;
@@ -92,7 +93,7 @@ public class TokenTests {
         TokenResponse writeToken = tokenManager.getWriteToken();
         UserHttpClient userHttpClient = new UserHttpClient();
 
-        User user = User.newInstance(AGE, NAME, SEX, ZIP_CODE);
+        NewUser user = new NewUser(AGE, NAME, SEX, ZIP_CODE);
 
         userHttpClient.executePostUserRequest(URL_USER, writeToken.getAccessToken(), user);
         TokenResponse readToken = tokenManager.getReadToken();
