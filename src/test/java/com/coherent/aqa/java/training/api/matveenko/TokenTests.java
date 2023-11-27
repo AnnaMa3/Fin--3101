@@ -2,6 +2,7 @@ package com.coherent.aqa.java.training.api.matveenko;
 
 import com.coherent.aqa.java.training.api.matveenko.base.BasicHttpClient;
 import com.coherent.aqa.java.training.api.matveenko.base.UserHttpClient;
+import com.coherent.aqa.java.training.api.matveenko.base.UserResponse;
 import com.coherent.aqa.java.training.api.matveenko.base.ZipCodesHttpClient;
 import com.coherent.aqa.java.training.api.matveenko.config.TestProperties;
 import com.coherent.aqa.java.training.api.matveenko.token.TokenResponse;
@@ -22,6 +23,7 @@ public class TokenTests {
 
     private BasicHttpClient httpClient;
     private TokenManager  tokenManager;
+
 
     private static final String URL_GET_ZIPCODES = TestProperties.get("urlgetzipcodes");
     private static final String URL_POST_ZIPCODES = TestProperties.get("urlpostzipcodes");
@@ -87,7 +89,7 @@ public class TokenTests {
     }
 
     @Test
-    public void postUser() throws IOException {
+    public void createUserWithAvailableZipCode() throws IOException {
         TokenResponse writeToken = tokenManager.getWriteToken();
         UserHttpClient userHttpClient = new UserHttpClient();
 
@@ -97,9 +99,7 @@ public class TokenTests {
         map.put("name", NAME);
         map.put("age", AGE);
 
-        HttpResponse response = userHttpClient.executePostUserRequest(URL_USER, writeToken.getAccessToken(), map);
-        Assert.assertEquals(response.getStatusLine().getStatusCode(), 201, "User is not added");
-
+        UserResponse user = userHttpClient.executePostUserRequest(URL_USER, writeToken.getAccessToken(), map);
         TokenResponse readToken = tokenManager.getReadToken();
         ZipCodesHttpClient zipCodesHttpClient = new ZipCodesHttpClient();
         List<String> zipcodes = zipCodesHttpClient.executeGetZipCodeRequest(URL_GET_ZIPCODES, readToken.getAccessToken());
