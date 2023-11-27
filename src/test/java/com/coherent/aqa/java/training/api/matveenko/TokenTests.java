@@ -1,9 +1,11 @@
 package com.coherent.aqa.java.training.api.matveenko;
 
 import com.coherent.aqa.java.training.api.matveenko.base.BasicHttpClient;
+import com.coherent.aqa.java.training.api.matveenko.base.UserHttpClient;
 import com.coherent.aqa.java.training.api.matveenko.base.ZipCodesHttpClient;
 import com.coherent.aqa.java.training.api.matveenko.config.TestProperties;
 import com.coherent.aqa.java.training.api.matveenko.token.TokenResponse;
+import org.apache.http.HttpResponse;
 import org.apache.log4j.PropertyConfigurator;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
@@ -14,10 +16,7 @@ import org.testng.collections.Sets;
 
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.util.Collections;
-import java.util.List;
-import java.util.Properties;
-import java.util.Set;
+import java.util.*;
 
 public class TokenTests {
 
@@ -26,6 +25,13 @@ public class TokenTests {
 
     private static final String URL_GET_ZIPCODES = TestProperties.get("urlgetzipcodes");
     private static final String URL_POST_ZIPCODES = TestProperties.get("urlpostzipcodes");
+
+    private static final String URL_USER = TestProperties.get("urlcreateuser");
+    private static final String AGE = TestProperties.get("age");
+    private static final String NAME = TestProperties.get("name");
+    private static final String SEX = TestProperties.get("sex");
+    private static final String ZIP_CODE = TestProperties.get("zipCode");
+
     private static final List<String> ZIPCODE = Collections.singletonList(TestProperties.get("zipcode"));
 
     @DataProvider(name = "zipcodes")
@@ -38,6 +44,7 @@ public class TokenTests {
                 {ZIPCODE}
         };
     }
+
 
     @BeforeClass
     public void setUp(){
@@ -77,5 +84,26 @@ public class TokenTests {
         List<String> zipcodes = zipCodesHttpClient.executePostZipCodeRequest(URL_POST_ZIPCODES, writeToken.getAccessToken(), zipcode);
         Set<String> set = Sets.newHashSet(zipcodes);
         Assert.assertEquals(zipcodes.size(), set.size(), "Duplicates are found");
+    }
+
+    @Test
+    public void postUser() throws IOException {
+        TokenResponse writeToken = tokenManager.getWriteToken();
+        UserHttpClient userHttpClient = new UserHttpClient();
+
+        Map<String, String> map = new HashMap<>();
+        map.put("zipCode", ZIP_CODE);
+        map.put("sex", SEX);
+        map.put("name", NAME);
+        map.put("age", AGE);
+
+        HttpResponse response = userHttpClient.executePostUserRequest(URL_USER, writeToken.getAccessToken(), map);
+        Assert.assertEquals(response.getStatusLine().getStatusCode(), 201, "User is not added");
+
+        TokenResponse readToken = tokenManager.getReadToken();
+        ZipCodesHttpClient zipCodesHttpClient = new ZipCodesHttpClient();
+        List<String> zipcodes = zipCodesHttpClient.executeGetZipCodeRequest(URL_GET_ZIPCODES, readToken.getAccessToken());
+        Assert.assertListNotContainsObject(zipcodes, ZIP_CODE, "Zip code is not removed from available zip codes of application");
+
     }
 }
