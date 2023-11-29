@@ -2,8 +2,8 @@ package com.coherent.aqa.java.training.api.matveenko;
 
 import com.coherent.aqa.java.training.api.matveenko.base.BasicHttpClient;
 import com.coherent.aqa.java.training.api.matveenko.base.UserHttpClient;
-import com.coherent.aqa.java.training.api.matveenko.model.NewUser;
 import com.coherent.aqa.java.training.api.matveenko.model.User;
+import com.coherent.aqa.java.training.api.matveenko.model.UserFactory;
 import com.coherent.aqa.java.training.api.matveenko.base.ZipCodesHttpClient;
 import com.coherent.aqa.java.training.api.matveenko.config.TestProperties;
 import com.coherent.aqa.java.training.api.matveenko.token.TokenResponse;
@@ -29,10 +29,6 @@ public class TokenTests {
     private static final String URL_POST_ZIPCODES = TestProperties.get("urlpostzipcodes");
 
     private static final String URL_USER = TestProperties.get("urlcreateuser");
-    private static final String AGE = TestProperties.get("age");
-    private static final String NAME = TestProperties.get("name");
-    private static final String SEX = TestProperties.get("sex");
-    private static final String ZIP_CODE = TestProperties.get("zipCode");
 
     private static final List<String> ZIPCODE = Collections.singletonList(TestProperties.get("zipcode"));
 
@@ -93,13 +89,14 @@ public class TokenTests {
         TokenResponse writeToken = tokenManager.getWriteToken();
         UserHttpClient userHttpClient = new UserHttpClient();
 
-        NewUser user = new NewUser(AGE, NAME, SEX, ZIP_CODE);
+        User user = UserFactory.validFullUser();
+
 
         userHttpClient.executePostUserRequest(URL_USER, writeToken.getAccessToken(), user);
         TokenResponse readToken = tokenManager.getReadToken();
         ZipCodesHttpClient zipCodesHttpClient = new ZipCodesHttpClient();
         List<String> zipcodes = zipCodesHttpClient.executeGetZipCodeRequest(URL_GET_ZIPCODES, readToken.getAccessToken());
-        Assert.assertListNotContainsObject(zipcodes, ZIP_CODE, "Zip code is not removed from available zip codes of application");
+        Assert.assertListNotContainsObject(zipcodes, user.getZipCode(), "Zip code is not removed from available zip codes of application");
 
     }
 }
