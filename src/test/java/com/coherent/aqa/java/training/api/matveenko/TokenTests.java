@@ -17,6 +17,7 @@ import org.testng.collections.Sets;
 
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.util.*;
 
 public class TokenTests {
@@ -32,6 +33,9 @@ public class TokenTests {
 
     private static final List<String> ZIPCODE = Collections.singletonList(TestProperties.get("zipcode"));
 
+    private static final String KEY = TestProperties.get("key");
+    private static final String VALUE = TestProperties.get("value");
+
     @DataProvider(name = "zipcodes")
     public Object[][] getCredentials() throws IOException {
         Properties properties = new Properties();
@@ -40,6 +44,17 @@ public class TokenTests {
 
         return new Object[][]{
                 {ZIPCODE}
+        };
+    }
+
+    @DataProvider(name = "parameters")
+    public Object[][] getParameters() throws IOException {
+        Properties properties = new Properties();
+        FileInputStream fileInputStream = new FileInputStream("src/main/resources/config.properties");
+        properties.load(fileInputStream);
+
+        return new Object[][]{
+                {KEY, VALUE}
         };
     }
 
@@ -97,6 +112,31 @@ public class TokenTests {
         ZipCodesHttpClient zipCodesHttpClient = new ZipCodesHttpClient();
         List<String> zipcodes = zipCodesHttpClient.executeGetZipCodeRequest(URL_GET_ZIPCODES, readToken.getAccessToken());
         Assert.assertListNotContainsObject(zipcodes, user.getZipCode(), "Zip code is not removed from available zip codes of application");
+
+    }
+
+    @Test(dataProvider = "parameters")
+    public void getUsersTest(String key, String value) throws IOException, URISyntaxException {
+        TokenResponse readToken = tokenManager.getReadToken();
+        UserHttpClient userHttpClient = new UserHttpClient();
+
+        List<User> users = userHttpClient.executeGetUserRequest(URL_USER, key, value, readToken.getAccessToken());
+
+
+        for (int i =0; i < users.size(); i++){
+            switch (key){
+                case "olderThan":
+                    Assert.assertTrue(users.get(i).getAge() > Integer.parseInt(value), "Users are not found");
+                    break;
+                case "youngerThan":
+                    Assert.assertTrue(users.get(i).getAge()< Integer.parseInt(value), "Users are not found");
+                    break;
+                case "sex":
+                    Assert.assertEquals(users.get(i).getSex().toString(), value, "Users are not found");
+                    break;
+            }
+        }
+
 
     }
 }
