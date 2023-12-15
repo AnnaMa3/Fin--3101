@@ -3,6 +3,7 @@ package com.coherent.aqa.java.training.api.matveenko.token;
 import org.apache.http.*;
 import org.apache.http.entity.BufferedHttpEntity;
 import org.apache.http.entity.ByteArrayEntity;
+import org.apache.http.entity.StringEntity;
 import org.apache.http.protocol.HttpContext;
 import org.apache.http.util.EntityUtils;
 import org.apache.log4j.BasicConfigurator;
@@ -20,7 +21,12 @@ public class LoggingResponseInterceptor implements HttpResponseInterceptor {
     public void process(HttpResponse httpResponse, HttpContext httpContext) throws IOException {
         BasicConfigurator.configure();
 
+
         HttpEntity entity = httpResponse.getEntity();
+        if (entity == null) {
+            entity = new StringEntity("Empty entity");
+        }
+
         HttpEntity bufferedEntity = bufferEntity(entity);
 
         httpResponse.setEntity(bufferedEntity);

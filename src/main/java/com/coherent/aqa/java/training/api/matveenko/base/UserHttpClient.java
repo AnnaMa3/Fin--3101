@@ -102,6 +102,24 @@ public class UserHttpClient extends BasicHttpClient {
         Assert.assertEquals(response.getStatusLine().getStatusCode(), 200, "Users are not updated");
 
     }
+    public void executeDeleteUserRequest(String url, String writeToken, User user) throws IOException{
+        HttpDeleteWithBody httpDelete = new  HttpDeleteWithBody(url);
+        httpDelete.setHeader("Authorization", "Bearer "+ writeToken);
+
+        ObjectMapper mapper = new ObjectMapper();
+        String jsonBody = mapper.writeValueAsString(user);
+
+        StringEntity stringEntity = new StringEntity(jsonBody);
+        stringEntity.setContentType("application/json");
+        httpDelete.setEntity(stringEntity);
+        System.out.println(stringEntity);
+
+        CloseableHttpResponse response = (CloseableHttpResponse) httpClient
+                .execute((HttpUriRequest) httpDelete);
+
+        Assert.assertEquals(response.getStatusLine().getStatusCode(), 204, "User is not deleted");
+    }
+
 
 
 }
