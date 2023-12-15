@@ -2,6 +2,7 @@ package com.coherent.aqa.java.training.api.matveenko;
 
 import com.coherent.aqa.java.training.api.matveenko.base.BasicHttpClient;
 import com.coherent.aqa.java.training.api.matveenko.base.UserHttpClient;
+import com.coherent.aqa.java.training.api.matveenko.model.UpdatedUser;
 import com.coherent.aqa.java.training.api.matveenko.model.User;
 import com.coherent.aqa.java.training.api.matveenko.model.UserFactory;
 import com.coherent.aqa.java.training.api.matveenko.base.ZipCodesHttpClient;
@@ -138,5 +139,28 @@ public class TokenTests {
         }
 
 
+    }
+
+    @Test
+    public void updateUsersTest() throws IOException, URISyntaxException {
+        TokenResponse writeToken = tokenManager.getWriteToken();
+        UserHttpClient userHttpClient = new UserHttpClient();
+
+        User user = UserFactory.userToUpdate();
+        User updatedUser = UserFactory.updatedUser();
+        UpdatedUser userToUpdate = new UpdatedUser(updatedUser, user);
+
+        userHttpClient.executeUpdateUserRequest(URL_USER, writeToken.getAccessToken(), userToUpdate);
+
+        TokenResponse readToken = tokenManager.getReadToken();
+        String key = "olderThan";
+        String value = String.valueOf(updatedUser.getAge() - 1);
+
+        List<User> users = userHttpClient.executeGetUserRequest(URL_USER, key, value, readToken.getAccessToken());
+
+        for (int i = 0; i < users.size(); i++) {
+            Assert.assertTrue(users.get(i).getAge() == updatedUser.getAge(), "Users are not updated");
+            Assert.assertTrue(users.get(i).getZipCode().equals(updatedUser.getZipCode()) , "Users are not updated");
+        }
     }
 }

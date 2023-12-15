@@ -1,13 +1,11 @@
 package com.coherent.aqa.java.training.api.matveenko.base;
 
+import com.coherent.aqa.java.training.api.matveenko.model.UpdatedUser;
 import com.coherent.aqa.java.training.api.matveenko.model.UserFactory;
 import com.coherent.aqa.java.training.api.matveenko.model.User;
 import com.coherent.aqa.java.training.api.matveenko.token.ModuleConfig;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.apache.http.client.methods.CloseableHttpResponse;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.client.methods.HttpUriRequest;
+import org.apache.http.client.methods.*;
 import org.apache.http.entity.StringEntity;
 import org.springframework.util.StreamUtils;
 import org.testng.Assert;
@@ -85,6 +83,24 @@ public class UserHttpClient extends BasicHttpClient {
         URI newUri = new URI(uri.getScheme(), uri.getAuthority(), uri.getPath(), builder.toString(), uri.getFragment());
 
         return newUri;
+    }
+
+    public void executeUpdateUserRequest(String url, String writeToken, UpdatedUser userToUpdate) throws IOException, URISyntaxException {
+        HttpPatch httpPatch = new HttpPatch(url);
+        httpPatch.setHeader("Authorization", "Bearer "+ writeToken);
+
+
+        ObjectMapper mapper = new ObjectMapper();
+        String jsonBody = mapper.writeValueAsString(userToUpdate);
+
+        StringEntity stringEntity = new StringEntity(jsonBody);
+        stringEntity.setContentType("application/json");
+        httpPatch.setEntity(stringEntity);
+
+        CloseableHttpResponse response = (CloseableHttpResponse) httpClient.execute((HttpUriRequest)httpPatch);
+
+        Assert.assertEquals(response.getStatusLine().getStatusCode(), 200, "Users are not updated");
+
     }
 
 
