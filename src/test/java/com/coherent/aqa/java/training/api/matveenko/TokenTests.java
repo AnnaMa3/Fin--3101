@@ -10,6 +10,7 @@ import com.coherent.aqa.java.training.api.matveenko.config.TestProperties;
 import com.coherent.aqa.java.training.api.matveenko.token.TokenResponse;
 import org.apache.log4j.PropertyConfigurator;
 import org.testng.Assert;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -163,4 +164,27 @@ public class TokenTests {
             Assert.assertTrue(users.get(i).getZipCode().equals(updatedUser.getZipCode()) , "Users are not updated");
         }
     }
+
+    @Test
+    public void deleteUser() throws IOException {
+        TokenResponse writeToken = tokenManager.getWriteToken();
+        UserHttpClient userHttpClient = new UserHttpClient();
+
+        User user = UserFactory.validFullUser();
+        userHttpClient.executeDeleteUserRequest(URL_USER, writeToken.getAccessToken(), user);
+
+        TokenResponse readToken = tokenManager.getReadToken();
+        ZipCodesHttpClient zipCodesHttpClient = new ZipCodesHttpClient();
+        List<String> zipcodes = zipCodesHttpClient.executeGetZipCodeRequest(URL_GET_ZIPCODES, readToken.getAccessToken());
+
+        Assert.assertListContainsObject(zipcodes, user.getZipCode(), "Zip code is not added to available zip codes of application");
+
+    }
+
+    @AfterTest
+    public void closeHttpClient() {
+        httpClient.close();
+    }
+
+
 }
