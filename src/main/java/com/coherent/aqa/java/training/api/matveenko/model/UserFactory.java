@@ -1,6 +1,10 @@
 package com.coherent.aqa.java.training.api.matveenko.model;
 
 import com.coherent.aqa.java.training.api.matveenko.config.TestProperties;
+import com.github.javafaker.Faker;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class UserFactory {
     private static final String AGE = TestProperties.get("age");
@@ -9,6 +13,8 @@ public class UserFactory {
     private static final String SEX = TestProperties.get("sex");
     private static final String ZIP_CODE = TestProperties.get("zipCode");
     private static final String ZIP_CODE_NEW = TestProperties.get("zipCodeNew");
+
+    private static Faker faker = new Faker();
 
     public static User validFullUser(){
         User user = new User((AGE.isEmpty())?0:Integer.parseInt(AGE), NAME, SEX, ZIP_CODE);
@@ -37,5 +43,22 @@ public class UserFactory {
         } else {
             throw new IllegalArgumentException("Name must be not empty");
         }
+    }
+
+    public static List<User> usersToUpload(List<String> zipCodes) {
+        List<User> users = new ArrayList<>();
+
+        for (int i = 0; i < zipCodes.size(); i++){
+            User user = new User(faker.number().numberBetween(1, 100), String.valueOf(faker.name().firstName()), faker.options().option(Sex.FEMALE, Sex.MALE), zipCodes.get(i));
+
+            if (!user.getName().trim().isEmpty()){
+                users.add(user);
+            } else {
+                throw new IllegalArgumentException("Name must be not empty");
+            }
+
+        }
+
+        return users;
     }
 }

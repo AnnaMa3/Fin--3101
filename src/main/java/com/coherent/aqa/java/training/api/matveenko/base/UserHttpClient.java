@@ -5,14 +5,26 @@ import com.coherent.aqa.java.training.api.matveenko.model.UserFactory;
 import com.coherent.aqa.java.training.api.matveenko.model.User;
 import com.coherent.aqa.java.training.api.matveenko.token.ModuleConfig;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.apache.http.HttpEntity;
 import org.apache.http.client.methods.*;
+import org.apache.http.entity.BufferedHttpEntity;
+import org.apache.http.entity.ByteArrayEntity;
+import org.apache.http.entity.ContentType;
 import org.apache.http.entity.StringEntity;
+import org.apache.http.entity.mime.HttpMultipartMode;
+import org.apache.http.entity.mime.MultipartEntity;
+import org.apache.http.entity.mime.MultipartEntityBuilder;
+import org.apache.http.entity.mime.content.FileBody;
+import org.apache.http.entity.mime.content.StringBody;
 import org.springframework.util.StreamUtils;
 import org.testng.Assert;
 
 
+import java.io.ByteArrayOutputStream;
+import java.io.File;
 import java.io.IOException;
 
+import java.io.InputStream;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.nio.charset.Charset;
@@ -118,6 +130,34 @@ public class UserHttpClient extends BasicHttpClient {
                 .execute((HttpUriRequest) httpDelete);
 
         Assert.assertEquals(response.getStatusLine().getStatusCode(), 204, "User is not deleted");
+    }
+
+    public String executeUploadUsersRequest(String url, String writeToken, List<User> users) throws IOException{
+        HttpPost httpPost = new HttpPost(url);
+        httpPost.setHeader("Authorization", "Bearer "+ writeToken);
+
+        ObjectMapper mapper = new ObjectMapper();
+
+        mapper.writeValue(new File("target/output.json"), users);
+
+        final File file = new File("target/output.json");
+
+        final MultipartEntityBuilder builder = MultipartEntityBuilder.create();
+        builder.setContentType(ContentType.MULTIPART_FORM_DATA);
+
+        builder.addBinaryBody("file", file, ContentType.DEFAULT_BINARY, "output.json");
+        HttpEntity multipart = builder.build();
+
+        httpPost.setEntity(multipart);
+
+        CloseableHttpResponse response = (CloseableHttpResponse) httpClient
+                .execute((HttpUriRequest) httpPost);
+
+        Assert.assertEquals(response.getStatusLine().getStatusCode(), 201, "Users are not uploaded");
+        String responseBody = StreamUtils.copyToString(response.getEntity().getContent(), Charset.defaultCharset());
+
+
+        return responseBody;
     }
 
 

@@ -33,6 +33,8 @@ public class TokenTests {
 
     private static final String URL_USER = TestProperties.get("urlcreateuser");
 
+    private static final String URL_UPLOAD_USER = TestProperties.get("urluploadusers");
+
     private static final List<String> ZIPCODE = Collections.singletonList(TestProperties.get("zipcode"));
 
     private static final String KEY = TestProperties.get("key");
@@ -178,6 +180,24 @@ public class TokenTests {
         List<String> zipcodes = zipCodesHttpClient.executeGetZipCodeRequest(URL_GET_ZIPCODES, readToken.getAccessToken());
 
         Assert.assertListContainsObject(zipcodes, user.getZipCode(), "Zip code is not added to available zip codes of application");
+
+    }
+
+    @Test
+    public void uploadUsers() throws IOException {
+
+        TokenResponse readToken = tokenManager.getReadToken();
+        ZipCodesHttpClient zipCodesHttpClient = new ZipCodesHttpClient();
+        List<String> zipcodes = zipCodesHttpClient.executeGetZipCodeRequest(URL_GET_ZIPCODES, readToken.getAccessToken());
+
+        TokenResponse writeToken = tokenManager.getWriteToken();
+        UserHttpClient userHttpClient = new UserHttpClient();
+
+        List<User> users = UserFactory.usersToUpload(zipcodes);
+        String uploadedUsers = userHttpClient.executeUploadUsersRequest(URL_UPLOAD_USER, writeToken.getAccessToken(), users);
+
+        Assert.assertTrue(uploadedUsers.contains(String.valueOf(users.size())), "Users are not uploaded");
+
 
     }
 
