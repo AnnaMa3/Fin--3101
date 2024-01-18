@@ -1,5 +1,6 @@
 package com.coherent.aqa.java.training.api.matveenko.token;
 
+import io.qameta.allure.Allure;
 import org.apache.http.*;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.protocol.HttpContext;
@@ -25,6 +26,7 @@ public class LoggingRequestInterceptor implements HttpRequestInterceptor {
             entity = ((HttpEntityEnclosingRequest) httpRequest).getEntity();
         }
 
+        Allure.attachment("Request.txt", EntityUtils.toString(entity));
         logger.info(System.lineSeparator() +
                 "===========================request begin================================================"
                 + System.lineSeparator()
