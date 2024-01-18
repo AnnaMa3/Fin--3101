@@ -1,5 +1,6 @@
 package com.coherent.aqa.java.training.api.matveenko.model;
 
+
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
 import lombok.extern.jackson.Jacksonized;
@@ -24,10 +25,10 @@ public class User {
     @JsonProperty(value = "age")
     private int age;
 
-    @JsonProperty(value = "name")
+    @JsonProperty(value = "name", required = true)
     private String name;
 
-    @JsonProperty(value = "sex")
+    @JsonProperty(value = "sex", required = true)
     private Sex sex;
 
     @JsonProperty(value = "zipCode")

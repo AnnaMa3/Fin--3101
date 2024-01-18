@@ -8,12 +8,12 @@ import com.coherent.aqa.java.training.api.matveenko.model.UserFactory;
 import com.coherent.aqa.java.training.api.matveenko.base.ZipCodesHttpClient;
 import com.coherent.aqa.java.training.api.matveenko.config.TestProperties;
 import com.coherent.aqa.java.training.api.matveenko.token.TokenResponse;
+
+import io.qameta.allure.*;
 import org.apache.log4j.PropertyConfigurator;
 import org.testng.Assert;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.DataProvider;
-import org.testng.annotations.Test;
+import org.testng.TestListenerAdapter;
+import org.testng.annotations.*;
 import com.coherent.aqa.java.training.api.matveenko.token.TokenManager;
 import org.testng.collections.Sets;
 
@@ -22,6 +22,7 @@ import java.io.IOException;
 import java.net.URISyntaxException;
 import java.util.*;
 
+//@Listeners({TestListenerAdapter.class})
 public class TokenTests {
 
     private BasicHttpClient httpClient;
@@ -71,21 +72,36 @@ public class TokenTests {
         PropertyConfigurator.configure(log4jConfPath);
     }
 
-    @Test
+    @Test(priority = 1, description="Get Write Token Test")
+    @Description("Get Write TokenTest")
+    @Epic("Tests")
+    @Feature("Users")
+    @Step("Step 1")
     public void getWriteTokenTest() throws IOException {
+        Allure.suite("Tests for essential features");
         TokenResponse writeToken = tokenManager.getWriteToken();
         Assert.assertNotNull(writeToken, "Write Token is not defined");
 
     }
 
-    @Test
+
+    @Test(priority = 1, description="Get Read Token Test")
+    @Description("Get Read Token Test")
+    @Epic("Tests")
+    @Feature("Users")
+    @Step("Step 1")
     public void getReadTokenTest() throws IOException{
         TokenResponse readToken = tokenManager.getReadToken();
         Assert.assertNotNull(readToken, "Read Token is not defined");
 
     }
 
-    @Test
+
+    @Test(priority = 0, description="Get ZipCodes Test")
+    @Description("Get ZipCodes Test")
+    @Epic("Tests")
+    @Feature("Users")
+    @Step("Step 1")
     public void getZipCodes() throws IOException {
         TokenResponse readToken = tokenManager.getReadToken();
         ZipCodesHttpClient zipCodesHttpClient = new ZipCodesHttpClient();
@@ -95,6 +111,11 @@ public class TokenTests {
     }
 
     @Test (dataProvider = "zipcodes")
+    @Description("Post ZipCodes Test")
+    @Epic("Tests")
+    @Feature("Users")
+    @Link("Bug")
+    @Step("Step 1")
     public void postZipCodes(List<String> zipcode) throws IOException {
         TokenResponse writeToken = tokenManager.getWriteToken();
         ZipCodesHttpClient zipCodesHttpClient = new ZipCodesHttpClient();
@@ -103,7 +124,11 @@ public class TokenTests {
         Assert.assertEquals(zipcodes.size(), set.size(), "Duplicates are found");
     }
 
-    @Test
+    @Test(priority = 1, description="Create User Test")
+    @Description("Create User Test")
+    @Epic("Tests")
+    @Feature("Users")
+    @Step("Step 1")
     public void createUserWithAvailableZipCode() throws IOException {
         TokenResponse writeToken = tokenManager.getWriteToken();
         UserHttpClient userHttpClient = new UserHttpClient();
@@ -120,6 +145,10 @@ public class TokenTests {
     }
 
     @Test(dataProvider = "parameters")
+    @Description("Get Users Test")
+    @Epic("Tests")
+    @Feature("Users")
+    @Step("Step 1")
     public void getUsersTest(String key, String value) throws IOException, URISyntaxException {
         TokenResponse readToken = tokenManager.getReadToken();
         UserHttpClient userHttpClient = new UserHttpClient();
@@ -144,7 +173,11 @@ public class TokenTests {
 
     }
 
-    @Test
+    @Test(priority = 1, description="Update Users Test")
+    @Description("Update Users Test")
+    @Epic("Tests")
+    @Feature("Users")
+    @Step("Step 1")
     public void updateUsersTest() throws IOException, URISyntaxException {
         TokenResponse writeToken = tokenManager.getWriteToken();
         UserHttpClient userHttpClient = new UserHttpClient();
@@ -167,7 +200,11 @@ public class TokenTests {
         }
     }
 
-    @Test
+    @Test(priority = 1, description="Delete Users Test")
+    @Description("Delete Users Test")
+    @Epic("Tests")
+    @Feature("Users")
+    @Step("Step 1")
     public void deleteUser() throws IOException {
         TokenResponse writeToken = tokenManager.getWriteToken();
         UserHttpClient userHttpClient = new UserHttpClient();
@@ -183,7 +220,11 @@ public class TokenTests {
 
     }
 
-    @Test
+    @Test(priority = 0, description="Upload Users Test")
+    @Description("Upload Users Test")
+    @Epic("Tests")
+    @Feature("Users")
+    @Step("Step 1")
     public void uploadUsers() throws IOException {
 
         TokenResponse readToken = tokenManager.getReadToken();
