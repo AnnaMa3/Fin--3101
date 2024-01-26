@@ -1,0 +1,16 @@
+com\coherent\aqa\java\training\api\matveenko\base\UserHttpClient.class
+com\coherent\aqa\java\training\api\matveenko\model\UpdatedUser.class
+com\coherent\aqa\java\training\api\matveenko\model\User.class
+com\coherent\aqa\java\training\api\matveenko\config\TestProperties.class
+com\coherent\aqa\java\training\api\matveenko\model\UserFactory.class
+com\coherent\aqa\java\training\api\matveenko\base\ZipCodesHttpClient.class
+com\coherent\aqa\java\training\api\matveenko\exceptions\BadConfigException.class
+com\coherent\aqa\java\training\api\matveenko\token\TokenManager.class
+com\coherent\aqa\java\training\api\matveenko\token\TokenResponse.class
+com\coherent\aqa\java\training\api\matveenko\model\Sex.class
+com\coherent\aqa\java\training\api\matveenko\token\Scope.class
+com\coherent\aqa\java\training\api\matveenko\token\ModuleConfig.class
+com\coherent\aqa\java\training\api\matveenko\token\LoggingResponseInterceptor.class
+com\coherent\aqa\java\training\api\matveenko\base\BasicHttpClient.class
+com\coherent\aqa\java\training\api\matveenko\token\LoggingRequestInterceptor.class
+com\coherent\aqa\java\training\api\matveenko\base\HttpDeleteWithBody.class

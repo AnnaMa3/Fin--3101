@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="9" passed="8" failed="1" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2024-01-18T10:27:56 CET" name="Surefire suite" finished-at="2024-01-18T10:28:00 CET" duration-ms="3813">
+    <groups>
+    </groups>
+    <test started-at="2024-01-18T10:27:56 CET" name="Surefire test" finished-at="2024-01-18T10:28:00 CET" duration-ms="3813">
+      <class name="com.coherent.aqa.java.training.api.matveenko.TokenTests">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.coherent.aqa.java.training.api.matveenko.TokenTests@1b1c538d]" started-at="2024-01-18T10:27:56 CET" name="setUp" finished-at="2024-01-18T10:27:57 CET" duration-ms="1440" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="getUsersTest(java.lang.String,java.lang.String)[pri:0, instance:com.coherent.aqa.java.training.api.matveenko.TokenTests@1b1c538d]" started-at="2024-01-18T10:27:57 CET" name="getUsersTest" data-provider="parameters" finished-at="2024-01-18T10:27:58 CET" duration-ms="1228" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[olderThan]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[10]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getUsersTest -->
+        <test-method signature="getZipCodes()[pri:0, instance:com.coherent.aqa.java.training.api.matveenko.TokenTests@1b1c538d]" started-at="2024-01-18T10:27:59 CET" name="getZipCodes" description="Get ZipCodes Test" finished-at="2024-01-18T10:27:59 CET" duration-ms="57" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getZipCodes -->
+        <test-method signature="postZipCodes(java.util.List)[pri:0, instance:com.coherent.aqa.java.training.api.matveenko.TokenTests@1b1c538d]" started-at="2024-01-18T10:27:59 CET" name="postZipCodes" data-provider="zipcodes" finished-at="2024-01-18T10:27:59 CET" duration-ms="72" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[77777]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- postZipCodes -->
+        <test-method signature="uploadUsers()[pri:0, instance:com.coherent.aqa.java.training.api.matveenko.TokenTests@1b1c538d]" started-at="2024-01-18T10:27:59 CET" name="uploadUsers" description="Upload Users Test" finished-at="2024-01-18T10:27:59 CET" duration-ms="483" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- uploadUsers -->
+        <test-method signature="createUserWithAvailableZipCode()[pri:1, instance:com.coherent.aqa.java.training.api.matveenko.TokenTests@1b1c538d]" started-at="2024-01-18T10:27:59 CET" name="createUserWithAvailableZipCode" description="Create User Test" finished-at="2024-01-18T10:27:59 CET" duration-ms="74" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createUserWithAvailableZipCode -->
+        <test-method signature="deleteUser()[pri:1, instance:com.coherent.aqa.java.training.api.matveenko.TokenTests@1b1c538d]" started-at="2024-01-18T10:27:59 CET" name="deleteUser" description="Delete Users Test" finished-at="2024-01-18T10:27:59 CET" duration-ms="88" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- deleteUser -->
+        <test-method signature="getReadTokenTest()[pri:1, instance:com.coherent.aqa.java.training.api.matveenko.TokenTests@1b1c538d]" started-at="2024-01-18T10:27:59 CET" name="getReadTokenTest" description="Get Read Token Test" finished-at="2024-01-18T10:27:59 CET" duration-ms="27" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getReadTokenTest -->
+        <test-method signature="getWriteTokenTest()[pri:1, instance:com.coherent.aqa.java.training.api.matveenko.TokenTests@1b1c538d]" started-at="2024-01-18T10:27:59 CET" name="getWriteTokenTest" description="Get Write Token Test" finished-at="2024-01-18T10:27:59 CET" duration-ms="28" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getWriteTokenTest -->
+        <test-method signature="updateUsersTest()[pri:1, instance:com.coherent.aqa.java.training.api.matveenko.TokenTests@1b1c538d]" started-at="2024-01-18T10:27:59 CET" name="updateUsersTest" description="Update Users Test" finished-at="2024-01-18T10:28:00 CET" duration-ms="63" status="FAIL">
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[Users are not updated expected [200] but found [400]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: Users are not updated expected [200] but found [400]
+at org.testng.Assert.fail(Assert.java:111)
+at org.testng.Assert.failNotEquals(Assert.java:1578)
+at org.testng.Assert.assertEqualsImpl(Assert.java:150)
+at org.testng.Assert.assertEquals(Assert.java:132)
+at org.testng.Assert.assertEquals(Assert.java:1419)
+at org.testng.Assert.assertEquals(Assert.java:1383)
+at com.coherent.aqa.java.training.api.matveenko.base.UserHttpClient.executeUpdateUserRequest(UserHttpClient.java:114)
+at com.coherent.aqa.java.training.api.matveenko.TokenTests.updateUsersTest(TokenTests.java:189)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:664)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:227)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:957)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:200)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+at org.testng.TestRunner.privateRun(TestRunner.java:848)
+at org.testng.TestRunner.run(TestRunner.java:621)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:443)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:437)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:397)
+at org.testng.SuiteRunner.run(SuiteRunner.java:336)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1280)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1200)
+at org.testng.TestNG.runSuites(TestNG.java:1114)
+at org.testng.TestNG.run(TestNG.java:1082)
+at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:155)
+at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.executeSingleClass(TestNGDirectoryTestSuite.java:102)
+at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.execute(TestNGDirectoryTestSuite.java:91)
+at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:137)
+at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- updateUsersTest -->
+        <test-method is-config="true" signature="closeHttpClient()[pri:0, instance:com.coherent.aqa.java.training.api.matveenko.TokenTests@1b1c538d]" started-at="2024-01-18T10:28:00 CET" name="closeHttpClient" finished-at="2024-01-18T10:28:00 CET" duration-ms="2" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeHttpClient -->
+      </class> <!-- com.coherent.aqa.java.training.api.matveenko.TokenTests -->
+    </test> <!-- Surefire test -->
+  </suite> <!-- Surefire suite -->
+</testng-results>
