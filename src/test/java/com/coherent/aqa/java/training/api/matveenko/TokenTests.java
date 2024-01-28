@@ -12,7 +12,6 @@ import com.coherent.aqa.java.training.api.matveenko.token.TokenResponse;
 import io.qameta.allure.*;
 import org.apache.log4j.PropertyConfigurator;
 import org.testng.Assert;
-import org.testng.TestListenerAdapter;
 import org.testng.annotations.*;
 import com.coherent.aqa.java.training.api.matveenko.token.TokenManager;
 import org.testng.collections.Sets;
@@ -22,7 +21,7 @@ import java.io.IOException;
 import java.net.URISyntaxException;
 import java.util.*;
 
-//@Listeners({TestListenerAdapter.class})
+
 public class TokenTests {
 
     private BasicHttpClient httpClient;
@@ -72,7 +71,7 @@ public class TokenTests {
         PropertyConfigurator.configure(log4jConfPath);
     }
 
-    @Test(priority = 1, description="Get Write Token Test")
+    @Test(priority = 0, description="Get Write Token Test")
     @Description("Get Write TokenTest")
     @Epic("Tests")
     @Feature("Users")
@@ -97,7 +96,7 @@ public class TokenTests {
     }
 
 
-    @Test(priority = 0, description="Get ZipCodes Test")
+    @Test(priority = 2, description="Get ZipCodes Test")
     @Description("Get ZipCodes Test")
     @Epic("Tests")
     @Feature("Users")
@@ -124,7 +123,7 @@ public class TokenTests {
         Assert.assertEquals(zipcodes.size(), set.size(), "Duplicates are found");
     }
 
-    @Test(priority = 1, description="Create User Test")
+    @Test(priority = 3, description="Create User Test")
     @Description("Create User Test")
     @Epic("Tests")
     @Feature("Users")
@@ -173,7 +172,7 @@ public class TokenTests {
 
     }
 
-    @Test(priority = 1, description="Update Users Test")
+    @Test(priority = 4, description="Update Users Test")
     @Description("Update Users Test")
     @Epic("Tests")
     @Feature("Users")
@@ -200,7 +199,7 @@ public class TokenTests {
         }
     }
 
-    @Test(priority = 1, description="Delete Users Test")
+    @Test(priority = 5, description="Delete Users Test")
     @Description("Delete Users Test")
     @Epic("Tests")
     @Feature("Users")
@@ -220,7 +219,7 @@ public class TokenTests {
 
     }
 
-    @Test(priority = 0, description="Upload Users Test")
+    @Test(priority = 6, description="Upload Users Test")
     @Description("Upload Users Test")
     @Epic("Tests")
     @Feature("Users")
