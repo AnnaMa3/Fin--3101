@@ -1,0 +1,7 @@
+--h9sDV1ZoxNYx40LkK-kzuKnrFrIromwLW-yzeB8E
+Content-Disposition: form-data; name="file"; filename="output.json"
+Content-Type: application/octet-stream
+Content-Transfer-Encoding: binary
+
+[]
+--h9sDV1ZoxNYx40LkK-kzuKnrFrIromwLW-yzeB8E--
