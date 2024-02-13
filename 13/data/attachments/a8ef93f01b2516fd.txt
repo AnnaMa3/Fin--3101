@@ -1,0 +1,13 @@
+POST /oauth/token HTTP/1.1  --E_nuOxy-mMS8R6Kzk_LMjZyp-cn1VzxLMbpjRlZN
+Content-Disposition: form-data; name="grant_type"
+Content-Type: text/plain; charset=ISO-8859-1
+Content-Transfer-Encoding: 8bit
+
+client_credentials
+--E_nuOxy-mMS8R6Kzk_LMjZyp-cn1VzxLMbpjRlZN
+Content-Disposition: form-data; name="scope"
+Content-Type: text/plain; charset=ISO-8859-1
+Content-Transfer-Encoding: 8bit
+
+write
+--E_nuOxy-mMS8R6Kzk_LMjZyp-cn1VzxLMbpjRlZN--

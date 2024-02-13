@@ -1,0 +1,13 @@
+--RJfit5o49eXuWPyUk6zOt_ppmPddyuK
+Content-Disposition: form-data; name="grant_type"
+Content-Type: text/plain; charset=ISO-8859-1
+Content-Transfer-Encoding: 8bit
+
+client_credentials
+--RJfit5o49eXuWPyUk6zOt_ppmPddyuK
+Content-Disposition: form-data; name="scope"
+Content-Type: text/plain; charset=ISO-8859-1
+Content-Transfer-Encoding: 8bit
+
+read
+--RJfit5o49eXuWPyUk6zOt_ppmPddyuK--
