@@ -77,7 +77,7 @@ public class TokenTests {
     @Feature("Users")
     @Step("Step 1")
     public void getWriteTokenTest() throws IOException {
-        Allure.suite("Tests for essential features");
+    
         TokenResponse writeToken = tokenManager.getWriteToken();
         Assert.assertNotNull(writeToken, "Write Token is not defined");
 
@@ -96,7 +96,7 @@ public class TokenTests {
     }
 
 
-    @Test(priority = 2, description="Get ZipCodes Test")
+    @Test(priority = 2)
     @Description("Get ZipCodes Test")
     @Epic("Tests")
     @Feature("Users")
