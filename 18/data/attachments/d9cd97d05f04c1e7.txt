@@ -1,0 +1,13 @@
+POST /oauth/token HTTP/1.1  --IkBXDdrW1A0VMuqkNRB7gqaVWIqMUXQRN
+Content-Disposition: form-data; name="grant_type"
+Content-Type: text/plain; charset=ISO-8859-1
+Content-Transfer-Encoding: 8bit
+
+client_credentials
+--IkBXDdrW1A0VMuqkNRB7gqaVWIqMUXQRN
+Content-Disposition: form-data; name="scope"
+Content-Type: text/plain; charset=ISO-8859-1
+Content-Transfer-Encoding: 8bit
+
+read
+--IkBXDdrW1A0VMuqkNRB7gqaVWIqMUXQRN--
