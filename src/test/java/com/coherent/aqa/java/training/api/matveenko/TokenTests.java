@@ -208,7 +208,7 @@ public class TokenTests {
         TokenResponse writeToken = tokenManager.getWriteToken();
         UserHttpClient userHttpClient = new UserHttpClient();
 
-        User user = UserFactory.validFullUser();
+        User user = UserFactory.validFullUser2();
         userHttpClient.executeDeleteUserRequest(URL_USER, writeToken.getAccessToken(), user);
 
         TokenResponse readToken = tokenManager.getReadToken();
