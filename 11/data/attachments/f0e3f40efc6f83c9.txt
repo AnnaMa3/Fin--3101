@@ -1,0 +1,13 @@
+--dMySClAhd44gibcxC8uFn40_US8ddk
+Content-Disposition: form-data; name="grant_type"
+Content-Type: text/plain; charset=ISO-8859-1
+Content-Transfer-Encoding: 8bit
+
+client_credentials
+--dMySClAhd44gibcxC8uFn40_US8ddk
+Content-Disposition: form-data; name="scope"
+Content-Type: text/plain; charset=ISO-8859-1
+Content-Transfer-Encoding: 8bit
+
+read
+--dMySClAhd44gibcxC8uFn40_US8ddk--
