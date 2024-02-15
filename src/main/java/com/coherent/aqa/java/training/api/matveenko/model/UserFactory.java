@@ -13,6 +13,8 @@ public class UserFactory {
     private static final String SEX = TestProperties.get("sex");
     private static final String ZIP_CODE = TestProperties.get("zipCode");
     private static final String ZIP_CODE_NEW = TestProperties.get("zipCodeNew");
+    private static final String ZIP_CODE2 = TestProperties.get("zipCode2");
+    private static final String ZIP_CODE_NEW2 = TestProperties.get("zipCodeNew2");
 
     private static Faker faker = new Faker();
 
@@ -25,6 +27,14 @@ public class UserFactory {
         }
     }
 
+    public static User validFullUser2(){
+        User user = new User((AGE.isEmpty())?0:Integer.parseInt(AGE), NAME, SEX, ZIP_CODE2);
+        if (!user.getName().trim().isEmpty()){
+            return user;
+        } else {
+            throw new IllegalArgumentException("Name must be not empty");
+        }
+    }
     public static User updatedUser() {
         User user = new User(AGE_NEW, NAME, Sex.valueOf(SEX), ZIP_CODE_NEW);
 
@@ -35,6 +45,15 @@ public class UserFactory {
         }
     }
 
+    public static User updatedUser2() {
+        User user = new User(AGE_NEW, NAME, Sex.valueOf(SEX), ZIP_CODE_NEW2);
+
+        if (!user.getName().trim().isEmpty()){
+            return user;
+        } else {
+            throw new IllegalArgumentException("Name must be not empty");
+        }
+    }
     public static User userToUpdate() {
         User user = new User(Integer.parseInt(AGE), NAME, Sex.valueOf(SEX), ZIP_CODE);
 
@@ -45,6 +64,16 @@ public class UserFactory {
         }
     }
 
+    public static User userToUpdate2() {
+        User user = new User(Integer.parseInt(AGE), NAME, Sex.valueOf(SEX), ZIP_CODE2);
+
+        if (!user.getName().trim().isEmpty()){
+            return user;
+        } else {
+            throw new IllegalArgumentException("Name must be not empty");
+        }
+    }
+    
     public static List<User> usersToUpload(List<String> zipCodes) {
         List<User> users = new ArrayList<>();
 
@@ -61,4 +90,5 @@ public class UserFactory {
 
         return users;
     }
+     
 }
