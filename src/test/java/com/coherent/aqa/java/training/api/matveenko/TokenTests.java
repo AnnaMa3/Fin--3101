@@ -35,7 +35,7 @@ public class TokenTests {
 
     private static final String URL_UPLOAD_USER = TestProperties.get("urluploadusers");
 
-    private static final List<String> ZIPCODE = Collections.singletonList(TestProperties.get("zipcode"));
+    private static final List<String> ZIPCODE = Collections.singletonList(TestProperties.get("zipcode2"));
 
     private static final String KEY = TestProperties.get("key");
     private static final String VALUE = TestProperties.get("value");
