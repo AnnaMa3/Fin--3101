@@ -1,0 +1,2 @@
+POST /zip-codes/expand HTTP/1.1 Authorization: Bearer ba8c0f9b-057f-458c-9416-2dfd30cae994
+ ["77777"]
