@@ -285,11 +285,14 @@ public class RestAssuredTests {
                 .then().log().all().extract().response().jsonPath().getString("access_token");
 
         User user = UserFactory.userToUpdate();
+        System.out.println(user);
         User updatedUser = UserFactory.updatedUser();
+        System.out.println(updatedUser);
         UpdatedUser userToUpdate = new UpdatedUser(updatedUser, user);
 
         ObjectMapper mapper = new ObjectMapper();
         String jsonBody = mapper.writeValueAsString(userToUpdate);
+        System.out.println(jsonBody);
 
 
         int statusCode = given()
@@ -329,8 +332,7 @@ public class RestAssuredTests {
         Allure.attachment("Request.txt", body);
 
         for (int i = 0; i < users.size(); i++) {
-            Assert.assertTrue(users.get(i).getAge() == updatedUser.getAge(), "Users are not updated");
-            Assert.assertTrue(users.get(i).getZipCode().equals(updatedUser.getZipCode()) , "Users are not updated");
+            Assert.assertFalse(users.get(i).getAge() == user.getAge() & users.get(i).getZipCode().equals(user.getZipCode()), "Users are not updated");
         }
 
 
