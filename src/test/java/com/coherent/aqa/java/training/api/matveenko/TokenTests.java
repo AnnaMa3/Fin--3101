@@ -132,7 +132,7 @@ public class TokenTests {
         TokenResponse writeToken = tokenManager.getWriteToken();
         UserHttpClient userHttpClient = new UserHttpClient();
 
-        User user = UserFactory.validFullUser();
+        User user = UserFactory.validFullUser2();
 
 
         userHttpClient.executePostUserRequest(URL_USER, writeToken.getAccessToken(), user);
@@ -181,8 +181,8 @@ public class TokenTests {
         TokenResponse writeToken = tokenManager.getWriteToken();
         UserHttpClient userHttpClient = new UserHttpClient();
 
-        User user = UserFactory.userToUpdate();
-        User updatedUser = UserFactory.updatedUser();
+        User user = UserFactory.userToUpdate2();
+        User updatedUser = UserFactory.updatedUser2();
         UpdatedUser userToUpdate = new UpdatedUser(updatedUser, user);
 
         userHttpClient.executeUpdateUserRequest(URL_USER, writeToken.getAccessToken(), userToUpdate);
