@@ -1,0 +1,7 @@
+--7ro97HqOe1pfyZ7SZYMTH3wCDg4Bnp1ukb
+Content-Disposition: form-data; name="file"; filename="output.json"
+Content-Type: application/octet-stream
+Content-Transfer-Encoding: binary
+
+[{"age":5,"name":"Chance","sex":"FEMALE","zipCode":"12345"},{"age":18,"name":"Rick","sex":"MALE","zipCode":"23456"},{"age":63,"name":"Cody","sex":"FEMALE","zipCode":"ABCDE"},{"age":21,"name":"Garrett","sex":"FEMALE","zipCode":"88888"}]
+--7ro97HqOe1pfyZ7SZYMTH3wCDg4Bnp1ukb--
