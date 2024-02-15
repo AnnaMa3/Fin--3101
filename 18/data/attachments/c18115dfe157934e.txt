@@ -1,0 +1,8 @@
+POST/users/uploadHTTP/1.1Authorization: Bearer 22103ef0-fd9e-4340-bd54-ac5742e12df8
+--N9Sl5Mmr3oHJ3CrtezzMLkRlrRVZxi
+Content-Disposition: form-data; name="file"; filename="output.json"
+Content-Type: application/octet-stream
+Content-Transfer-Encoding: binary
+
+[{"age":18,"name":"Kimberley","sex":"MALE","zipCode":"12345"},{"age":63,"name":"Merlin","sex":"FEMALE","zipCode":"ABCDE"},{"age":61,"name":"Darcy","sex":"FEMALE","zipCode":"77777"},{"age":53,"name":"Katelin","sex":"FEMALE","zipCode":"23456"},{"age":27,"name":"Omer","sex":"FEMALE","zipCode":"77777"}]
+--N9Sl5Mmr3oHJ3CrtezzMLkRlrRVZxi--
