@@ -92,7 +92,7 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">9 methods, 1 failed,   8 passed</span>
+                    <span class="method-stats">18 methods, 1 failed,   17 passed</span>
                   </li>
                   <li>
                     <span class="method-list-title failed">Failed methods</span>
@@ -122,12 +122,32 @@
                       <br/>
                       <span>
                         <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="com.coherent.aqa.java.training.api.matveenko.RestAssuredTests" class="method navigator-link" hash-for-method="createUserWithAvailableZipCode">createUserWithAvailableZipCode</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="com.coherent.aqa.java.training.api.matveenko.RestAssuredTests" class="method navigator-link" hash-for-method="deleteUser">deleteUser</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
                         <a href="#" panel-name="suite-Surefire_suite" title="com.coherent.aqa.java.training.api.matveenko.TokenTests" class="method navigator-link" hash-for-method="deleteUser">deleteUser</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="com.coherent.aqa.java.training.api.matveenko.RestAssuredTests" class="method navigator-link" hash-for-method="getReadTokenTest">getReadTokenTest</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
                         <a href="#" panel-name="suite-Surefire_suite" title="com.coherent.aqa.java.training.api.matveenko.TokenTests" class="method navigator-link" hash-for-method="getReadTokenTest">getReadTokenTest</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="com.coherent.aqa.java.training.api.matveenko.RestAssuredTests" class="method navigator-link" hash-for-method="getUsersTest(olderThan, 10)">getUsersTest(olderThan, 10)</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
@@ -142,6 +162,16 @@
                       <br/>
                       <span>
                         <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="com.coherent.aqa.java.training.api.matveenko.RestAssuredTests" class="method navigator-link" hash-for-method="getWriteTokenTest">getWriteTokenTest</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="com.coherent.aqa.java.training.api.matveenko.RestAssuredTests" class="method navigator-link" hash-for-method="getZipCodes">getZipCodes</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
                         <a href="#" panel-name="suite-Surefire_suite" title="com.coherent.aqa.java.training.api.matveenko.TokenTests" class="method navigator-link" hash-for-method="getZipCodes">getZipCodes</a> <!-- method navigator-link -->
                       </span>
                       <br/>
@@ -152,7 +182,22 @@
                       <br/>
                       <span>
                         <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="com.coherent.aqa.java.training.api.matveenko.RestAssuredTests" class="method navigator-link" hash-for-method="postZipCodes([77777])">postZipCodes([77777])</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="com.coherent.aqa.java.training.api.matveenko.RestAssuredTests" class="method navigator-link" hash-for-method="updateUsersTest">updateUsersTest</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
                         <a href="#" panel-name="suite-Surefire_suite" title="com.coherent.aqa.java.training.api.matveenko.TokenTests" class="method navigator-link" hash-for-method="uploadUsers">uploadUsers</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="com.coherent.aqa.java.training.api.matveenko.RestAssuredTests" class="method navigator-link" hash-for-method="uploadUsers">uploadUsers</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-Surefire_suite -->
@@ -178,11 +223,10 @@
                   <a name="updateUsersTest">
                   </a> <!-- updateUsersTest -->
                   <span class="method-name">updateUsersTest</span>
-                  <div class="stack-trace">java.lang.AssertionError: Users are not updated expected [200] but found [400]
-	at com.coherent.aqa.java.training.api.matveenko.base.UserHttpClient.executeUpdateUserRequest(UserHttpClient.java:114)
-	at com.coherent.aqa.java.training.api.matveenko.TokenTests.updateUsersTest(TokenTests.java:189)
+                  <div class="stack-trace">java.lang.AssertionError: Users are not updated expected [true] but found [false]
+	at com.coherent.aqa.java.training.api.matveenko.TokenTests.updateUsersTest(TokenTests.java:196)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
-... Removed 38 stack frames
+... Removed 35 stack frames
 </div> <!-- stack-trace -->
                   <em>
 (Update Users Test)                  </em>
@@ -190,6 +234,93 @@
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
           </div> <!-- suite-Surefire_suite-class-failed -->
+          <div class="suite-Surefire_suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">com.coherent.aqa.java.training.api.matveenko.RestAssuredTests</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="createUserWithAvailableZipCode">
+                  </a> <!-- createUserWithAvailableZipCode -->
+                  <span class="method-name">createUserWithAvailableZipCode</span>
+                  <em>
+(Create User Test)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="deleteUser">
+                  </a> <!-- deleteUser -->
+                  <span class="method-name">deleteUser</span>
+                  <em>
+(Delete Users Test)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="getReadTokenTest">
+                  </a> <!-- getReadTokenTest -->
+                  <span class="method-name">getReadTokenTest</span>
+                  <em>
+(Get Read Token Test)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="getUsersTest(olderThan, 10)">
+                  </a> <!-- getUsersTest(olderThan, 10) -->
+                  <span class="method-name">getUsersTest</span>
+                  <span class="parameters">(olderThan,10)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="getWriteTokenTest">
+                  </a> <!-- getWriteTokenTest -->
+                  <span class="method-name">getWriteTokenTest</span>
+                  <em>
+(Get Write Token Test)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="getZipCodes">
+                  </a> <!-- getZipCodes -->
+                  <span class="method-name">getZipCodes</span>
+                  <em>
+(Get ZipCodes Test)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="postZipCodes([77777])">
+                  </a> <!-- postZipCodes([77777]) -->
+                  <span class="method-name">postZipCodes</span>
+                  <span class="parameters">([77777])</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="updateUsersTest">
+                  </a> <!-- updateUsersTest -->
+                  <span class="method-name">updateUsersTest</span>
+                  <em>
+(Update Users Test)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="uploadUsers">
+                  </a> <!-- uploadUsers -->
+                  <span class="method-name">uploadUsers</span>
+                  <em>
+(Upload Users Test)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Surefire_suite-class-passed -->
           <div class="suite-Surefire_suite-class-passed">
             <div class="main-panel-header rounded-window-top">
               <img src="passed.png"/>
@@ -279,6 +410,7 @@
 &lt;suite name=&quot;Surefire suite&quot; verbose=&quot;0&quot;&gt;
   &lt;test thread-count=&quot;5&quot; name=&quot;Surefire test&quot; verbose=&quot;0&quot;&gt;
     &lt;classes&gt;
+      &lt;class name=&quot;com.coherent.aqa.java.training.api.matveenko.RestAssuredTests&quot;/&gt;
       &lt;class name=&quot;com.coherent.aqa.java.training.api.matveenko.TokenTests&quot;/&gt;
     &lt;/classes&gt;
   &lt;/test&gt; &lt;!-- Surefire test --&gt;
@@ -293,7 +425,7 @@
           <div class="main-panel-content rounded-window-bottom">
             <ul>
               <li>
-                <span class="test-name">Surefire test (1 class)</span>
+                <span class="test-name">Surefire test (2 classes)</span>
               </li>
             </ul>
           </div> <!-- main-panel-content rounded-window-bottom -->
@@ -319,48 +451,84 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(9);
+data.addRows(18);
 data.setCell(0, 0, 0)
 data.setCell(0, 1, 'getUsersTest')
-data.setCell(0, 2, 'com.coherent.aqa.java.training.api.matveenko.TokenTests')
-data.setCell(0, 3, 1228);
+data.setCell(0, 2, 'com.coherent.aqa.java.training.api.matveenko.RestAssuredTests')
+data.setCell(0, 3, 4052);
 data.setCell(1, 0, 1)
 data.setCell(1, 1, 'uploadUsers')
-data.setCell(1, 2, 'com.coherent.aqa.java.training.api.matveenko.TokenTests')
-data.setCell(1, 3, 483);
+data.setCell(1, 2, 'com.coherent.aqa.java.training.api.matveenko.RestAssuredTests')
+data.setCell(1, 3, 346);
 data.setCell(2, 0, 2)
-data.setCell(2, 1, 'deleteUser')
-data.setCell(2, 2, 'com.coherent.aqa.java.training.api.matveenko.TokenTests')
-data.setCell(2, 3, 88);
+data.setCell(2, 1, 'createUserWithAvailableZipCode')
+data.setCell(2, 2, 'com.coherent.aqa.java.training.api.matveenko.RestAssuredTests')
+data.setCell(2, 3, 232);
 data.setCell(3, 0, 3)
-data.setCell(3, 1, 'createUserWithAvailableZipCode')
+data.setCell(3, 1, 'getUsersTest')
 data.setCell(3, 2, 'com.coherent.aqa.java.training.api.matveenko.TokenTests')
-data.setCell(3, 3, 74);
+data.setCell(3, 3, 180);
 data.setCell(4, 0, 4)
-data.setCell(4, 1, 'postZipCodes')
-data.setCell(4, 2, 'com.coherent.aqa.java.training.api.matveenko.TokenTests')
-data.setCell(4, 3, 72);
+data.setCell(4, 1, 'updateUsersTest')
+data.setCell(4, 2, 'com.coherent.aqa.java.training.api.matveenko.RestAssuredTests')
+data.setCell(4, 3, 124);
 data.setCell(5, 0, 5)
-data.setCell(5, 1, 'updateUsersTest')
-data.setCell(5, 2, 'com.coherent.aqa.java.training.api.matveenko.TokenTests')
-data.setCell(5, 3, 63);
+data.setCell(5, 1, 'postZipCodes')
+data.setCell(5, 2, 'com.coherent.aqa.java.training.api.matveenko.RestAssuredTests')
+data.setCell(5, 3, 104);
 data.setCell(6, 0, 6)
-data.setCell(6, 1, 'getZipCodes')
-data.setCell(6, 2, 'com.coherent.aqa.java.training.api.matveenko.TokenTests')
-data.setCell(6, 3, 57);
+data.setCell(6, 1, 'deleteUser')
+data.setCell(6, 2, 'com.coherent.aqa.java.training.api.matveenko.RestAssuredTests')
+data.setCell(6, 3, 80);
 data.setCell(7, 0, 7)
-data.setCell(7, 1, 'getWriteTokenTest')
+data.setCell(7, 1, 'deleteUser')
 data.setCell(7, 2, 'com.coherent.aqa.java.training.api.matveenko.TokenTests')
-data.setCell(7, 3, 28);
+data.setCell(7, 3, 66);
 data.setCell(8, 0, 8)
-data.setCell(8, 1, 'getReadTokenTest')
+data.setCell(8, 1, 'uploadUsers')
 data.setCell(8, 2, 'com.coherent.aqa.java.training.api.matveenko.TokenTests')
-data.setCell(8, 3, 27);
+data.setCell(8, 3, 62);
+data.setCell(9, 0, 9)
+data.setCell(9, 1, 'createUserWithAvailableZipCode')
+data.setCell(9, 2, 'com.coherent.aqa.java.training.api.matveenko.TokenTests')
+data.setCell(9, 3, 61);
+data.setCell(10, 0, 10)
+data.setCell(10, 1, 'updateUsersTest')
+data.setCell(10, 2, 'com.coherent.aqa.java.training.api.matveenko.TokenTests')
+data.setCell(10, 3, 61);
+data.setCell(11, 0, 11)
+data.setCell(11, 1, 'getZipCodes')
+data.setCell(11, 2, 'com.coherent.aqa.java.training.api.matveenko.RestAssuredTests')
+data.setCell(11, 3, 53);
+data.setCell(12, 0, 12)
+data.setCell(12, 1, 'getWriteTokenTest')
+data.setCell(12, 2, 'com.coherent.aqa.java.training.api.matveenko.RestAssuredTests')
+data.setCell(12, 3, 45);
+data.setCell(13, 0, 13)
+data.setCell(13, 1, 'postZipCodes')
+data.setCell(13, 2, 'com.coherent.aqa.java.training.api.matveenko.TokenTests')
+data.setCell(13, 3, 36);
+data.setCell(14, 0, 14)
+data.setCell(14, 1, 'getReadTokenTest')
+data.setCell(14, 2, 'com.coherent.aqa.java.training.api.matveenko.RestAssuredTests')
+data.setCell(14, 3, 31);
+data.setCell(15, 0, 15)
+data.setCell(15, 1, 'getZipCodes')
+data.setCell(15, 2, 'com.coherent.aqa.java.training.api.matveenko.TokenTests')
+data.setCell(15, 3, 27);
+data.setCell(16, 0, 16)
+data.setCell(16, 1, 'getWriteTokenTest')
+data.setCell(16, 2, 'com.coherent.aqa.java.training.api.matveenko.TokenTests')
+data.setCell(16, 3, 19);
+data.setCell(17, 0, 17)
+data.setCell(17, 1, 'getReadTokenTest')
+data.setCell(17, 2, 'com.coherent.aqa.java.training.api.matveenko.TokenTests')
+data.setCell(17, 3, 18);
 window.suiteTableData['Surefire_suite']= { tableData: data, tableDiv: 'times-div-Surefire_suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 2 seconds</span>
+              <span class="suite-total-time">Total running time: 5 seconds</span>
               <div id="times-div-Surefire_suite">
               </div> <!-- times-div-Surefire_suite -->
             </div> <!-- times-div -->
@@ -386,52 +554,91 @@ return data;
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="chronological-class">
-              <div class="chronological-class-name">com.coherent.aqa.java.training.api.matveenko.TokenTests</div> <!-- chronological-class-name -->
-              <div class="configuration-class before">
-                <span class="method-name">setUp</span>
-                <span class="method-start">0 ms</span>
-              </div> <!-- configuration-class before -->
+              <div class="chronological-class-name">com.coherent.aqa.java.training.api.matveenko.RestAssuredTests</div> <!-- chronological-class-name -->
               <div class="test-method">
                 <span class="method-name">getUsersTest(olderThan, 10)</span>
-                <span class="method-start">1465 ms</span>
-              </div> <!-- test-method -->
-              <div class="test-method">
-                <span class="method-name">getZipCodes</span>
-                <span class="method-start">2830 ms</span>
-              </div> <!-- test-method -->
-              <div class="test-method">
-                <span class="method-name">postZipCodes([77777])</span>
-                <span class="method-start">2893 ms</span>
-              </div> <!-- test-method -->
-              <div class="test-method">
-                <span class="method-name">uploadUsers</span>
-                <span class="method-start">2969 ms</span>
-              </div> <!-- test-method -->
-              <div class="test-method">
-                <span class="method-name">createUserWithAvailableZipCode</span>
-                <span class="method-start">3454 ms</span>
-              </div> <!-- test-method -->
-              <div class="test-method">
-                <span class="method-name">deleteUser</span>
-                <span class="method-start">3531 ms</span>
-              </div> <!-- test-method -->
-              <div class="test-method">
-                <span class="method-name">getReadTokenTest</span>
-                <span class="method-start">3624 ms</span>
+                <span class="method-start">0 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">getWriteTokenTest</span>
-                <span class="method-start">3654 ms</span>
+                <span class="method-start">4162 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">postZipCodes([77777])</span>
+                <span class="method-start">4211 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">getReadTokenTest</span>
+                <span class="method-start">4317 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">getZipCodes</span>
+                <span class="method-start">4350 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">createUserWithAvailableZipCode</span>
+                <span class="method-start">4405 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">updateUsersTest</span>
+                <span class="method-start">4639 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">deleteUser</span>
+                <span class="method-start">4765 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">uploadUsers</span>
+                <span class="method-start">4847 ms</span>
+              </div> <!-- test-method -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">com.coherent.aqa.java.training.api.matveenko.TokenTests</div> <!-- chronological-class-name -->
+              <div class="configuration-class before">
+                <span class="method-name">setUp</span>
+                <span class="method-start">5196 ms</span>
+              </div> <!-- configuration-class before -->
+              <div class="test-method">
+                <span class="method-name">getUsersTest(olderThan, 10)</span>
+                <span class="method-start">5263 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">getWriteTokenTest</span>
+                <span class="method-start">5445 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">postZipCodes([77777])</span>
+                <span class="method-start">5466 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">getReadTokenTest</span>
+                <span class="method-start">5504 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">getZipCodes</span>
+                <span class="method-start">5525 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">createUserWithAvailableZipCode</span>
+                <span class="method-start">5554 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <img src="failed.png">
                 </img>
                 <span class="method-name">updateUsersTest</span>
-                <span class="method-start">3685 ms</span>
+                <span class="method-start">5616 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">deleteUser</span>
+                <span class="method-start">5690 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">uploadUsers</span>
+                <span class="method-start">5758 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-test after">
                 <span class="method-name">closeHttpClient</span>
-                <span class="method-start">3759 ms</span>
+                <span class="method-start">5821 ms</span>
               </div> <!-- configuration-test after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

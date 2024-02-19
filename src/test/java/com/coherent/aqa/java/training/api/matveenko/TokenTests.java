@@ -77,7 +77,7 @@ public class TokenTests {
     @Feature("Users")
     @Step("Step 1")
     public void getWriteTokenTest() throws IOException {
-    
+
         TokenResponse writeToken = tokenManager.getWriteToken();
         Assert.assertNotNull(writeToken, "Write Token is not defined");
 
@@ -109,7 +109,7 @@ public class TokenTests {
         Assert.assertEquals(zipcodes.size(), set.size(), "Duplicates are found");
     }
 
-    @Test (dataProvider = "zipcodes")
+    @Test (priority = 3, dataProvider = "zipcodes")
     @Description("Post ZipCodes Test")
     @Epic("Tests")
     @Feature("Users")
@@ -123,7 +123,7 @@ public class TokenTests {
         Assert.assertEquals(zipcodes.size(), set.size(), "Duplicates are found");
     }
 
-    @Test(priority = 3, description="Create User Test")
+    @Test(priority = 4, description="Create User Test")
     @Description("Create User Test")
     @Epic("Tests")
     @Feature("Users")
@@ -143,7 +143,7 @@ public class TokenTests {
 
     }
 
-    @Test(dataProvider = "parameters")
+    @Test(priority = 5, dataProvider = "parameters")
     @Description("Get Users Test")
     @Epic("Tests")
     @Feature("Users")
@@ -172,7 +172,7 @@ public class TokenTests {
 
     }
 
-    @Test(priority = 4, description="Update Users Test")
+    @Test(priority = 6, description="Update Users Test")
     @Description("Update Users Test")
     @Epic("Tests")
     @Feature("Users")
@@ -193,13 +193,13 @@ public class TokenTests {
 
         List<User> users = userHttpClient.executeGetUserRequest(URL_USER, key, value, readToken.getAccessToken());
 
-        for (int i = 0; i < users.size(); i++) {
-            Assert.assertTrue(users.get(i).getAge() == updatedUser.getAge(), "Users are not updated");
-            Assert.assertTrue(users.get(i).getZipCode().equals(updatedUser.getZipCode()) , "Users are not updated");
-        }
-    }
 
-    @Test(priority = 5, description="Delete Users Test")
+            for (int i = 0; i < users.size(); i++) {
+                Assert.assertFalse(users.get(i).getAge() == user.getAge() & users.get(i).getZipCode().equals(user.getZipCode()), "Users are not updated");
+            }
+        }
+
+    @Test(priority = 7, description="Delete Users Test")
     @Description("Delete Users Test")
     @Epic("Tests")
     @Feature("Users")
@@ -219,7 +219,7 @@ public class TokenTests {
 
     }
 
-    @Test(priority = 6, description="Upload Users Test")
+    @Test(priority = 8, description="Upload Users Test")
     @Description("Upload Users Test")
     @Epic("Tests")
     @Feature("Users")

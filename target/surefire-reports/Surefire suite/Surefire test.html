@@ -55,11 +55,11 @@ function toggleAllBoxes() {
 <body>
 <h2 align='center'>Surefire test</h2><table border='1' align="center">
 <tr>
-<td>Tests passed/Failed/Skipped:</td><td>8/1/0</td>
+<td>Tests passed/Failed/Skipped:</td><td>17/1/0</td>
 </tr><tr>
-<td>Started on:</td><td>Thu Jan 18 10:27:56 CET 2024</td>
+<td>Started on:</td><td>Mon Feb 19 10:53:42 CET 2024</td>
 </tr>
-<tr><td>Total time:</td><td>3 seconds (3813 ms)</td>
+<tr><td>Total time:</td><td>5 seconds (5880 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -77,20 +77,15 @@ function toggleAllBoxes() {
 </tr>
 <tr>
 <td title='com.coherent.aqa.java.training.api.matveenko.TokenTests.updateUsersTest()'><b>updateUsersTest</b><br>Test class: com.coherent.aqa.java.training.api.matveenko.TokenTests<br>Test method: Update Users Test</td>
-<td><div><pre>java.lang.AssertionError: Users are not updated expected [200] but found [400]
-	at com.coherent.aqa.java.training.api.matveenko.base.UserHttpClient.executeUpdateUserRequest(UserHttpClient.java:114)
-	at com.coherent.aqa.java.training.api.matveenko.TokenTests.updateUsersTest(TokenTests.java:189)
+<td><div><pre>java.lang.AssertionError: Users are not updated expected [true] but found [false]
+	at com.coherent.aqa.java.training.api.matveenko.TokenTests.updateUsersTest(TokenTests.java:196)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
-... Removed 38 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace148222723", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace148222723'><pre>java.lang.AssertionError: Users are not updated expected [200] but found [400]
+... Removed 35 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1971965892", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1971965892'><pre>java.lang.AssertionError: Users are not updated expected [true] but found [false]
 	at org.testng.Assert.fail(Assert.java:111)
 	at org.testng.Assert.failNotEquals(Assert.java:1578)
-	at org.testng.Assert.assertEqualsImpl(Assert.java:150)
-	at org.testng.Assert.assertEquals(Assert.java:132)
-	at org.testng.Assert.assertEquals(Assert.java:1419)
-	at org.testng.Assert.assertEquals(Assert.java:1383)
-	at com.coherent.aqa.java.training.api.matveenko.base.UserHttpClient.executeUpdateUserRequest(UserHttpClient.java:114)
-	at com.coherent.aqa.java.training.api.matveenko.TokenTests.updateUsersTest(TokenTests.java:189)
+	at org.testng.Assert.assertTrue(Assert.java:57)
+	at com.coherent.aqa.java.training.api.matveenko.TokenTests.updateUsersTest(TokenTests.java:196)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -117,8 +112,8 @@ function toggleAllBoxes() {
 	at org.testng.TestNG.runSuites(TestNG.java:1114)
 	at org.testng.TestNG.run(TestNG.java:1082)
 	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:155)
-	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.executeSingleClass(TestNGDirectoryTestSuite.java:102)
-	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.execute(TestNGDirectoryTestSuite.java:91)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.executeMulti(TestNGDirectoryTestSuite.java:169)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.execute(TestNGDirectoryTestSuite.java:88)
 	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:137)
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
 	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
@@ -126,7 +121,7 @@ function toggleAllBoxes() {
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
 </pre></div></td>
 <td>0</td>
-<td>com.coherent.aqa.java.training.api.matveenko.TokenTests@1b1c538d</td></tr>
+<td>com.coherent.aqa.java.training.api.matveenko.TokenTests@3fa7df1</td></tr>
 </table><p>
 <table width='100%' border='1' class='invocation-passed'>
 <tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
@@ -137,45 +132,90 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='com.coherent.aqa.java.training.api.matveenko.TokenTests.getReadTokenTest()'><b>getReadTokenTest</b><br>Test class: com.coherent.aqa.java.training.api.matveenko.TokenTests<br>Test method: Get Read Token Test</td>
-<td></td>
-<td>0</td>
-<td>com.coherent.aqa.java.training.api.matveenko.TokenTests@1b1c538d</td></tr>
-<tr>
-<td title='com.coherent.aqa.java.training.api.matveenko.TokenTests.getUsersTest()'><b>getUsersTest</b><br>Test class: com.coherent.aqa.java.training.api.matveenko.TokenTests<br>Parameters: olderThan, 10</td>
-<td></td>
-<td>1</td>
-<td>com.coherent.aqa.java.training.api.matveenko.TokenTests@1b1c538d</td></tr>
-<tr>
-<td title='com.coherent.aqa.java.training.api.matveenko.TokenTests.createUserWithAvailableZipCode()'><b>createUserWithAvailableZipCode</b><br>Test class: com.coherent.aqa.java.training.api.matveenko.TokenTests<br>Test method: Create User Test</td>
-<td></td>
-<td>0</td>
-<td>com.coherent.aqa.java.training.api.matveenko.TokenTests@1b1c538d</td></tr>
-<tr>
-<td title='com.coherent.aqa.java.training.api.matveenko.TokenTests.deleteUser()'><b>deleteUser</b><br>Test class: com.coherent.aqa.java.training.api.matveenko.TokenTests<br>Test method: Delete Users Test</td>
-<td></td>
-<td>0</td>
-<td>com.coherent.aqa.java.training.api.matveenko.TokenTests@1b1c538d</td></tr>
-<tr>
-<td title='com.coherent.aqa.java.training.api.matveenko.TokenTests.uploadUsers()'><b>uploadUsers</b><br>Test class: com.coherent.aqa.java.training.api.matveenko.TokenTests<br>Test method: Upload Users Test</td>
-<td></td>
-<td>0</td>
-<td>com.coherent.aqa.java.training.api.matveenko.TokenTests@1b1c538d</td></tr>
-<tr>
-<td title='com.coherent.aqa.java.training.api.matveenko.TokenTests.getZipCodes()'><b>getZipCodes</b><br>Test class: com.coherent.aqa.java.training.api.matveenko.TokenTests<br>Test method: Get ZipCodes Test</td>
-<td></td>
-<td>0</td>
-<td>com.coherent.aqa.java.training.api.matveenko.TokenTests@1b1c538d</td></tr>
-<tr>
 <td title='com.coherent.aqa.java.training.api.matveenko.TokenTests.postZipCodes()'><b>postZipCodes</b><br>Test class: com.coherent.aqa.java.training.api.matveenko.TokenTests<br>Parameters: [77777]</td>
 <td></td>
 <td>0</td>
-<td>com.coherent.aqa.java.training.api.matveenko.TokenTests@1b1c538d</td></tr>
+<td>com.coherent.aqa.java.training.api.matveenko.TokenTests@3fa7df1</td></tr>
 <tr>
 <td title='com.coherent.aqa.java.training.api.matveenko.TokenTests.getWriteTokenTest()'><b>getWriteTokenTest</b><br>Test class: com.coherent.aqa.java.training.api.matveenko.TokenTests<br>Test method: Get Write Token Test</td>
 <td></td>
 <td>0</td>
-<td>com.coherent.aqa.java.training.api.matveenko.TokenTests@1b1c538d</td></tr>
+<td>com.coherent.aqa.java.training.api.matveenko.TokenTests@3fa7df1</td></tr>
+<tr>
+<td title='com.coherent.aqa.java.training.api.matveenko.RestAssuredTests.deleteUser()'><b>deleteUser</b><br>Test class: com.coherent.aqa.java.training.api.matveenko.RestAssuredTests<br>Test method: Delete Users Test</td>
+<td></td>
+<td>0</td>
+<td>com.coherent.aqa.java.training.api.matveenko.RestAssuredTests@5a97b17c</td></tr>
+<tr>
+<td title='com.coherent.aqa.java.training.api.matveenko.RestAssuredTests.getReadTokenTest()'><b>getReadTokenTest</b><br>Test class: com.coherent.aqa.java.training.api.matveenko.RestAssuredTests<br>Test method: Get Read Token Test</td>
+<td></td>
+<td>0</td>
+<td>com.coherent.aqa.java.training.api.matveenko.RestAssuredTests@5a97b17c</td></tr>
+<tr>
+<td title='com.coherent.aqa.java.training.api.matveenko.RestAssuredTests.updateUsersTest()'><b>updateUsersTest</b><br>Test class: com.coherent.aqa.java.training.api.matveenko.RestAssuredTests<br>Test method: Update Users Test</td>
+<td></td>
+<td>0</td>
+<td>com.coherent.aqa.java.training.api.matveenko.RestAssuredTests@5a97b17c</td></tr>
+<tr>
+<td title='com.coherent.aqa.java.training.api.matveenko.TokenTests.getReadTokenTest()'><b>getReadTokenTest</b><br>Test class: com.coherent.aqa.java.training.api.matveenko.TokenTests<br>Test method: Get Read Token Test</td>
+<td></td>
+<td>0</td>
+<td>com.coherent.aqa.java.training.api.matveenko.TokenTests@3fa7df1</td></tr>
+<tr>
+<td title='com.coherent.aqa.java.training.api.matveenko.TokenTests.uploadUsers()'><b>uploadUsers</b><br>Test class: com.coherent.aqa.java.training.api.matveenko.TokenTests<br>Test method: Upload Users Test</td>
+<td></td>
+<td>0</td>
+<td>com.coherent.aqa.java.training.api.matveenko.TokenTests@3fa7df1</td></tr>
+<tr>
+<td title='com.coherent.aqa.java.training.api.matveenko.TokenTests.deleteUser()'><b>deleteUser</b><br>Test class: com.coherent.aqa.java.training.api.matveenko.TokenTests<br>Test method: Delete Users Test</td>
+<td></td>
+<td>0</td>
+<td>com.coherent.aqa.java.training.api.matveenko.TokenTests@3fa7df1</td></tr>
+<tr>
+<td title='com.coherent.aqa.java.training.api.matveenko.RestAssuredTests.getZipCodes()'><b>getZipCodes</b><br>Test class: com.coherent.aqa.java.training.api.matveenko.RestAssuredTests<br>Test method: Get ZipCodes Test</td>
+<td></td>
+<td>0</td>
+<td>com.coherent.aqa.java.training.api.matveenko.RestAssuredTests@5a97b17c</td></tr>
+<tr>
+<td title='com.coherent.aqa.java.training.api.matveenko.TokenTests.createUserWithAvailableZipCode()'><b>createUserWithAvailableZipCode</b><br>Test class: com.coherent.aqa.java.training.api.matveenko.TokenTests<br>Test method: Create User Test</td>
+<td></td>
+<td>0</td>
+<td>com.coherent.aqa.java.training.api.matveenko.TokenTests@3fa7df1</td></tr>
+<tr>
+<td title='com.coherent.aqa.java.training.api.matveenko.RestAssuredTests.uploadUsers()'><b>uploadUsers</b><br>Test class: com.coherent.aqa.java.training.api.matveenko.RestAssuredTests<br>Test method: Upload Users Test</td>
+<td></td>
+<td>0</td>
+<td>com.coherent.aqa.java.training.api.matveenko.RestAssuredTests@5a97b17c</td></tr>
+<tr>
+<td title='com.coherent.aqa.java.training.api.matveenko.RestAssuredTests.getUsersTest()'><b>getUsersTest</b><br>Test class: com.coherent.aqa.java.training.api.matveenko.RestAssuredTests<br>Parameters: olderThan, 10</td>
+<td></td>
+<td>4</td>
+<td>com.coherent.aqa.java.training.api.matveenko.RestAssuredTests@5a97b17c</td></tr>
+<tr>
+<td title='com.coherent.aqa.java.training.api.matveenko.RestAssuredTests.postZipCodes()'><b>postZipCodes</b><br>Test class: com.coherent.aqa.java.training.api.matveenko.RestAssuredTests<br>Parameters: [77777]</td>
+<td></td>
+<td>0</td>
+<td>com.coherent.aqa.java.training.api.matveenko.RestAssuredTests@5a97b17c</td></tr>
+<tr>
+<td title='com.coherent.aqa.java.training.api.matveenko.TokenTests.getZipCodes()'><b>getZipCodes</b><br>Test class: com.coherent.aqa.java.training.api.matveenko.TokenTests<br>Test method: Get ZipCodes Test</td>
+<td></td>
+<td>0</td>
+<td>com.coherent.aqa.java.training.api.matveenko.TokenTests@3fa7df1</td></tr>
+<tr>
+<td title='com.coherent.aqa.java.training.api.matveenko.RestAssuredTests.getWriteTokenTest()'><b>getWriteTokenTest</b><br>Test class: com.coherent.aqa.java.training.api.matveenko.RestAssuredTests<br>Test method: Get Write Token Test</td>
+<td></td>
+<td>0</td>
+<td>com.coherent.aqa.java.training.api.matveenko.RestAssuredTests@5a97b17c</td></tr>
+<tr>
+<td title='com.coherent.aqa.java.training.api.matveenko.RestAssuredTests.createUserWithAvailableZipCode()'><b>createUserWithAvailableZipCode</b><br>Test class: com.coherent.aqa.java.training.api.matveenko.RestAssuredTests<br>Test method: Create User Test</td>
+<td></td>
+<td>0</td>
+<td>com.coherent.aqa.java.training.api.matveenko.RestAssuredTests@5a97b17c</td></tr>
+<tr>
+<td title='com.coherent.aqa.java.training.api.matveenko.TokenTests.getUsersTest()'><b>getUsersTest</b><br>Test class: com.coherent.aqa.java.training.api.matveenko.TokenTests<br>Parameters: olderThan, 10</td>
+<td></td>
+<td>0</td>
+<td>com.coherent.aqa.java.training.api.matveenko.TokenTests@3fa7df1</td></tr>
 </table><p>
 </body>
 </html>
