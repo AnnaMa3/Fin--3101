@@ -1,0 +1,13 @@
+--GS5DCikBVLK5R_82W5ERsOvVw0nycXiS2YB0JHu
+Content-Disposition: form-data; name="grant_type"
+Content-Type: text/plain; charset=ISO-8859-1
+Content-Transfer-Encoding: 8bit
+
+client_credentials
+--GS5DCikBVLK5R_82W5ERsOvVw0nycXiS2YB0JHu
+Content-Disposition: form-data; name="scope"
+Content-Type: text/plain; charset=ISO-8859-1
+Content-Transfer-Encoding: 8bit
+
+read
+--GS5DCikBVLK5R_82W5ERsOvVw0nycXiS2YB0JHu--
