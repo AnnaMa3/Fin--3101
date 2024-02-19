@@ -1,0 +1,2 @@
+POST/usersHTTP/1.1Authorization: Bearer 22103ef0-fd9e-4340-bd54-ac5742e12df8
+{"age":35,"name":"AM","sex":"FEMALE","zipCode":"23456"}
