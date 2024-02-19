@@ -53,7 +53,7 @@ public class RestAssuredTests {
         };
     }
 
-    @Test(description="Get Write Token Test")
+    @Test(priority = 0, description="Get Write Token Test")
     @Description("Get Write TokenTest")
     @Epic("Tests")
     @Feature("Users")
@@ -75,7 +75,7 @@ public class RestAssuredTests {
     }
 
 
-    @Test(description="Get Read Token Test")
+    @Test(priority = 1, description="Get Read Token Test")
     @Description("Get Read Token Test")
     @Epic("Tests")
     @Feature("Users")
@@ -97,7 +97,7 @@ public class RestAssuredTests {
     }
 
 
-    @Test(description="Get ZipCodes Test")
+    @Test(priority = 2, description="Get ZipCodes Test")
     @Description("Get ZipCodes Test")
     @Epic("Tests")
     @Feature("Users")
@@ -125,7 +125,7 @@ public class RestAssuredTests {
 
     }
 
-    @Test (dataProvider = "zipcodes")
+    @Test (priority = 3, dataProvider = "zipcodes")
     @Description("Post ZipCodes Test")
     @Epic("Tests")
     @Feature("Users")
@@ -162,7 +162,7 @@ public class RestAssuredTests {
 
     }
 
-    @Test(description="Create User Test")
+    @Test(priority = 4, description="Create User Test")
     @Description("Create User Test")
     @Epic("Tests")
     @Feature("Users")
@@ -218,7 +218,7 @@ public class RestAssuredTests {
 
     }
 
-    @Test(dataProvider = "parameters")
+    @Test(priority = 5, dataProvider = "parameters")
     @Description("Get Users Test")
     @Epic("Tests")
     @Feature("Users")
@@ -267,7 +267,7 @@ public class RestAssuredTests {
     }
 
 
-    @Test(description="Update Users Test")
+    @Test(priority = 6, description="Update Users Test")
     @Description("Update Users Test")
     @Epic("Tests")
     @Feature("Users")
@@ -338,7 +338,7 @@ public class RestAssuredTests {
 
     }
 
-    @Test(description="Delete Users Test")
+    @Test(priority = 7, description="Delete Users Test")
     @Description("Delete Users Test")
     @Epic("Tests")
     @Feature("Users")
@@ -392,7 +392,7 @@ public class RestAssuredTests {
 
     }
 
-    @Test(description="Upload Users Test")
+    @Test(priority = 8, description="Upload Users Test")
     @Description("Upload Users Test")
     @Epic("Tests")
     @Feature("Users")
