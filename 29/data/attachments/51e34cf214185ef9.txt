@@ -1,0 +1,13 @@
+--YUNA-yrXMpbUk9Mda2BJ_Oyj5Fb4v9MgmVyR
+Content-Disposition: form-data; name="grant_type"
+Content-Type: text/plain; charset=ISO-8859-1
+Content-Transfer-Encoding: 8bit
+
+client_credentials
+--YUNA-yrXMpbUk9Mda2BJ_Oyj5Fb4v9MgmVyR
+Content-Disposition: form-data; name="scope"
+Content-Type: text/plain; charset=ISO-8859-1
+Content-Transfer-Encoding: 8bit
+
+write
+--YUNA-yrXMpbUk9Mda2BJ_Oyj5Fb4v9MgmVyR--
