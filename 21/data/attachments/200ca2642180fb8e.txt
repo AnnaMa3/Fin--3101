@@ -1,0 +1,1 @@
+[{"name":"Francoise","age":51,"sex":"FEMALE","zipCode":"12345"},{"name":"Raleigh","age":43,"sex":"MALE","zipCode":"23456"},{"name":"Euna","age":29,"sex":"FEMALE","zipCode":"ABCDE"},{"name":"Agustin","age":81,"sex":"MALE","zipCode":"88888"}]
