@@ -71,7 +71,7 @@ public class TokenTests {
         PropertyConfigurator.configure(log4jConfPath);
     }
 
-    @Test(priority = 0, description="Get Write Token Test")
+    @Test(description="Get Write Token Test")
     @Description("Get Write TokenTest")
     @Epic("Tests")
     @Feature("Users")
@@ -84,7 +84,7 @@ public class TokenTests {
     }
 
 
-    @Test(priority = 1, description="Get Read Token Test")
+    @Test(description="Get Read Token Test")
     @Description("Get Read Token Test")
     @Epic("Tests")
     @Feature("Users")
@@ -123,7 +123,7 @@ public class TokenTests {
         Assert.assertEquals(zipcodes.size(), set.size(), "Duplicates are found");
     }
 
-    @Test(priority = 3, description="Create User Test")
+    @Test(description="Create User Test")
     @Description("Create User Test")
     @Epic("Tests")
     @Feature("Users")
@@ -172,7 +172,7 @@ public class TokenTests {
 
     }
 
-    @Test(priority = 4, description="Update Users Test")
+    @Test(description="Update Users Test")
     @Description("Update Users Test")
     @Epic("Tests")
     @Feature("Users")
@@ -199,7 +199,7 @@ public class TokenTests {
         }
     }
 
-    @Test(priority = 5, description="Delete Users Test")
+    @Test(description="Delete Users Test")
     @Description("Delete Users Test")
     @Epic("Tests")
     @Feature("Users")
@@ -219,7 +219,7 @@ public class TokenTests {
 
     }
 
-    @Test(priority = 6, description="Upload Users Test")
+    @Test(description="Upload Users Test")
     @Description("Upload Users Test")
     @Epic("Tests")
     @Feature("Users")
