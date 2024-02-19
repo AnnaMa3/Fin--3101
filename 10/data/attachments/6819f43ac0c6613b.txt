@@ -1,2 +1,0 @@
-DELETE /users HTTP/1.1 Authorization: Bearer 8df7e1a1-3c68-482d-8c2d-7e76f25246f2
- {"age":35,"name":"AM","sex":"FEMALE","zipCode":"23456"}

@@ -1,2 +1,0 @@
-GET /users?olderThan=10 HTTP/1.1 Authorization: Bearer 8b6d7bd6-53f5-46f3-909f-943e5a2d3cc1
- Empty entity

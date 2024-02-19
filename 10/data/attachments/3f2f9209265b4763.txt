@@ -1,8 +1,0 @@
-POST /users/upload HTTP/1.1 Authorization: Bearer ba8c0f9b-057f-458c-9416-2dfd30cae994
- --Ih6TSZGzv8nx-Pm-nLrWqFT04nKt-VleLsDp7u6
-Content-Disposition: form-data; name="file"; filename="output.json"
-Content-Type: application/octet-stream
-Content-Transfer-Encoding: binary
-
-[{"age":10,"name":"Winona","sex":"FEMALE","zipCode":"12345"},{"age":1,"name":"Richie","sex":"FEMALE","zipCode":"23456"},{"age":41,"name":"Melony","sex":"MALE","zipCode":"ABCDE"},{"age":80,"name":"Valene","sex":"FEMALE","zipCode":"77777"}]
---Ih6TSZGzv8nx-Pm-nLrWqFT04nKt-VleLsDp7u6--

@@ -1,7 +1,0 @@
---9FBygyL1pFWWAm80HjP8pOVe_KzjPkgxikMLJ_
-Content-Disposition: form-data; name="file"; filename="output.json"
-Content-Type: application/octet-stream
-Content-Transfer-Encoding: binary
-
-[{"age":84,"name":"Vince","sex":"FEMALE","zipCode":"23456"},{"age":86,"name":"Leigha","sex":"MALE","zipCode":"77777"}]
---9FBygyL1pFWWAm80HjP8pOVe_KzjPkgxikMLJ_--
