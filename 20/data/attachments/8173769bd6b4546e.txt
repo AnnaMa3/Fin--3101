@@ -1,0 +1,2 @@
+GET /zip-codes HTTP/1.1 Authorization: Bearer 31defe63-c0a2-4a9b-b6b4-9eada6e89542
+ Empty entity
