@@ -35,7 +35,7 @@ public class TokenTests {
 
     private static final String URL_UPLOAD_USER = TestProperties.get("urluploadusers");
 
-    private static final List<String> ZIPCODE = Collections.singletonList(TestProperties.get("zipcode"));
+    private static final List<String> ZIPCODE = Collections.singletonList(TestProperties.get("zipcode2"));
 
     private static final String KEY = TestProperties.get("key");
     private static final String VALUE = TestProperties.get("value");
@@ -71,19 +71,20 @@ public class TokenTests {
         PropertyConfigurator.configure(log4jConfPath);
     }
 
-    @Test(description="Get Write Token Test")
+    @Test(priority = 0, description="Get Write Token Test")
     @Description("Get Write TokenTest")
     @Epic("Tests")
     @Feature("Users")
     @Step("Step 1")
     public void getWriteTokenTest() throws IOException {
+
         TokenResponse writeToken = tokenManager.getWriteToken();
         Assert.assertNotNull(writeToken, "Write Token is not defined");
 
     }
 
 
-    @Test(description="Get Read Token Test")
+    @Test(priority = 1, description="Get Read Token Test")
     @Description("Get Read Token Test")
     @Epic("Tests")
     @Feature("Users")
@@ -95,11 +96,11 @@ public class TokenTests {
     }
 
 
-    @Test(description="Get ZipCodes Test")
+    @Test(priority = 2)
     @Description("Get ZipCodes Test")
     @Epic("Tests")
     @Feature("Users")
-    @Step()
+    @Step("Step 1")
     public void getZipCodes() throws IOException {
         TokenResponse readToken = tokenManager.getReadToken();
         ZipCodesHttpClient zipCodesHttpClient = new ZipCodesHttpClient();
@@ -122,7 +123,7 @@ public class TokenTests {
         Assert.assertEquals(zipcodes.size(), set.size(), "Duplicates are found");
     }
 
-    @Test (description="Create User Test")
+    @Test(priority = 3, description="Create User Test")
     @Description("Create User Test")
     @Epic("Tests")
     @Feature("Users")
@@ -131,7 +132,7 @@ public class TokenTests {
         TokenResponse writeToken = tokenManager.getWriteToken();
         UserHttpClient userHttpClient = new UserHttpClient();
 
-        User user = UserFactory.validFullUser();
+        User user = UserFactory.validFullUser2();
 
 
         userHttpClient.executePostUserRequest(URL_USER, writeToken.getAccessToken(), user);
@@ -171,7 +172,7 @@ public class TokenTests {
 
     }
 
-    @Test(description="Update Users Test")
+    @Test(priority = 4, description="Update Users Test")
     @Description("Update Users Test")
     @Epic("Tests")
     @Feature("Users")
@@ -180,8 +181,8 @@ public class TokenTests {
         TokenResponse writeToken = tokenManager.getWriteToken();
         UserHttpClient userHttpClient = new UserHttpClient();
 
-        User user = UserFactory.userToUpdate();
-        User updatedUser = UserFactory.updatedUser();
+        User user = UserFactory.userToUpdate2();
+        User updatedUser = UserFactory.updatedUser2();
         UpdatedUser userToUpdate = new UpdatedUser(updatedUser, user);
 
         userHttpClient.executeUpdateUserRequest(URL_USER, writeToken.getAccessToken(), userToUpdate);
@@ -198,7 +199,7 @@ public class TokenTests {
         }
     }
 
-    @Test(description="Delete Users Test")
+    @Test(priority = 5, description="Delete Users Test")
     @Description("Delete Users Test")
     @Epic("Tests")
     @Feature("Users")
@@ -207,7 +208,7 @@ public class TokenTests {
         TokenResponse writeToken = tokenManager.getWriteToken();
         UserHttpClient userHttpClient = new UserHttpClient();
 
-        User user = UserFactory.validFullUser();
+        User user = UserFactory.validFullUser2();
         userHttpClient.executeDeleteUserRequest(URL_USER, writeToken.getAccessToken(), user);
 
         TokenResponse readToken = tokenManager.getReadToken();
@@ -218,7 +219,7 @@ public class TokenTests {
 
     }
 
-    @Test(description="Upload Users Test")
+    @Test(priority = 6, description="Upload Users Test")
     @Description("Upload Users Test")
     @Epic("Tests")
     @Feature("Users")
