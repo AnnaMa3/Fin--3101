@@ -51,7 +51,7 @@ public class ZipCodesHttpClient extends BasicHttpClient {
         CloseableHttpResponse response = (CloseableHttpResponse) httpClient
                 .execute((HttpUriRequest) httpPost);
 
-        Assert.assertEquals(response.getStatusLine().getStatusCode(), 201, "Zip Codes is not available");
+        Assert.assertEquals(response.getStatusLine().getStatusCode(), 200, "Zip Codes is not available");
         String responseBody = StreamUtils.copyToString(response.getEntity().getContent(), Charset.defaultCharset());
 
         ObjectMapper entityMapper = new ObjectMapper();
